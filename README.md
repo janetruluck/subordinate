@@ -95,7 +95,7 @@ subdomain: jenkins                # The subdomain of your Jenkins Server
 job:       My-Jenkins-Job         # The job that you want to run tests on
 ```
 
-A sample is included in the [source](https://github.com/jasontruluck/subordinate/blob/master/spec/fixtures/authentication.yml.sample).
+A sample is included in the [source](https://github.com/jasontruluck/subordinate/blob/master/spec/fixtures/authentications.yml.sample).
 
 *Note: for tests concerning disabling, deleting, restarting, etc they are mocked explicitly with webmock and will not effect your server*
 
