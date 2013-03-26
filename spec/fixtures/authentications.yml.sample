@@ -1,0 +1,6 @@
+username:  jasontruluck           # Your Username
+token:     12345678901234567890   # Your Jenkins Token (found at jenkins-server/user/your-user-name/configure)
+domain:    mydomain.com           # The domain of your Jenkins server
+port:      8080                   # The port of your Jenkins Server
+subdomain: jenkins                # The subdomain of your Jenkins Server
+job:       My-Jenkins-Job         # The job that you want to run tests on
