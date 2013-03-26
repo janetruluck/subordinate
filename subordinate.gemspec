@@ -8,15 +8,16 @@ Gem::Specification.new do |gem|
   gem.version       = Subordinate::VERSION
   gem.authors       = ["Jason Truluck"]
   gem.email         = ["jason.truluck@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{Jenkins API wrapper}
+  gem.summary       = gem.description
+  gem.homepage      = "https://github.com/jasontruluck/subordinate"
 
   # gem.add_dependency "faraday"
   gem.add_dependency "faraday"
   gem.add_dependency "faraday_middleware"
   gem.add_dependency "hashie"
   gem.add_development_dependency "rspec"
+  gem.add_development_dependency "rake"
   gem.add_development_dependency "vcr"
   gem.add_development_dependency "mocha"
   gem.add_development_dependency "webmock"
