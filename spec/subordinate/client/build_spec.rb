@@ -1,6 +1,6 @@
 require "spec_helper"
 
-auth = authentications = YAML::load(File.open(File.expand_path("../../../fixtures/authentications.yml", __FILE__)))
+auth = YAML::load(File.open(File.expand_path("../../../fixtures/authentications.yml", __FILE__)))
 
 # Client Spec
 describe Subordinate::Client do
@@ -112,7 +112,28 @@ describe Subordinate::Client do
 
   describe "#console_output_for_build", :vcr do
     it "returns the console output for a complete build" do
-      subordinate.console_output_for_build(auth["job"], 1).should_not be_nil
+      response = subordinate.console_output_for_build(auth["job"], 1)
+      response.should_not be_nil
+      response.should_not include("javax.servlet.ServletException:")
+    end
+
+    it "returns pre-formatted output" do
+      response = subordinate.console_output_for_build(auth["job"], 1, nil, true)
+      response.should_not be_nil
+      response.should_not include("javax.servlet.ServletException:")
+    end
+
+    context "byte size arguement" do
+      it "returns data at byte 2000" do
+        subordinate.console_output_for_build(auth["job"], 1, 2000).should_not be_nil
+      end
+
+      it "when passed an offset of 2000 it is offset by 2000 bytes" do
+        output1 = subordinate.console_output_for_build(auth["job"], 1, 2000)
+        output2 = subordinate.console_output_for_build(auth["job"], 1, 0)
+
+        output1.bytesize.should < output2.bytesize
+      end
     end
   end
 end
