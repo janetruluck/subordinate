@@ -79,7 +79,7 @@ Currently can safe restart, restart, and quiet down
 client.restart
 ```
 
-### Using Depth
+### Using Depth query parameter
 
 For methods that allow you to specify a depth simply pass the depth you want via an option
 
@@ -88,6 +88,18 @@ client.job("My-awesome-job", {:depth => 1})
 ```
 
 The default depth is 0 for all methods.
+
+### Using Tree query parameters
+
+`tree` parameters are more efficient than using depth with exclude. They are available ot any methods that except them via options as well
+
+```ruby
+client.root({:tree => "jobs[name],views[name,jobs[name]]"}) 
+```
+
+A note from Jenkins: for array-type properties (such as jobs in this example), the name must be given in the original plural, not in the singular as the element would appear in XML (<job>). This will be more natural for e.g. json?tree=jobs[name] anyway: the JSON writer does not do plural-to-singular mangling because arrays are represented explicitly.
+
+Please see the [docs](https://ci.jenkins-ci.org/api/) for more info on tree parameters
 
 ## Testing
 
