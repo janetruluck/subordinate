@@ -79,6 +79,14 @@ Currently can safe restart, restart, and quiet down
 client.restart
 ```
 
+### [Build Queue](http://rdoc.info/github/jasontruluck/subordinate/master/Subordinate/Client/Queue)
+
+Retrieves the current build queue for the Jenkins server
+
+```ruby
+client.build_queue
+```
+
 ### Using Depth query parameter
 
 For methods that allow you to specify a depth simply pass the depth you want via an option
