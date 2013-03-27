@@ -18,7 +18,7 @@ describe Subordinate::Client do
   describe "#build_queue", :vcr do
     let(:current_response) { subordinate.build_queue }
 
-    it "returns the job response" do
+    it "returns the build queue response" do
       current_response.should_not be_nil
     end
 
