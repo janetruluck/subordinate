@@ -9,7 +9,7 @@ module Subordinate
       #
       # @see http://jenkins.missioncontrol.io:8080/queue/api/
       #
-      # @return [Hashie::Mash] job response
+      # @return [Hashie::Mash] build queue response
       #
       # @example Get the current build queue
       #   Subordinate::Client.build_queue
