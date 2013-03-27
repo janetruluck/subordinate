@@ -79,6 +79,16 @@ Currently can safe restart, restart, and quiet down
 client.restart
 ```
 
+### Using Depth
+
+For methods that allow you to specify a depth simply pass the depth you want via an option
+
+```ruby
+client.job("My-awesome-job", {:depth => 1})
+```
+
+The default depth is 0 for all methods.
+
 ## Testing
 
 This gem uses VCR to record requests to the api so you must test using a valid Jenkins server and credentails to test
