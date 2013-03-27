@@ -72,12 +72,12 @@ module Subordinate
       # @author Jason Truluck
       def console_output_for_build(job, build_number, start_offset = 0, pre = false, options = {})
         options.merge!(
-          :start => start_offset
+          :start => start_offset.to_i # Convert to Integer in case of nil
         )
         if pre
-          get("job/#{job}/#{build_number}/logText/pregressiveHTML", options)
+          get("job/#{job}/#{build_number}/logText/progressiveHtml", options)
         else
-          get("job/#{job}/#{build_number}/logText/pregressiveText", options)
+          get("job/#{job}/#{build_number}/logText/progressiveText", options)
         end
       end
     end
