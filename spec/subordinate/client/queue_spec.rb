@@ -1,6 +1,6 @@
 require "spec_helper"
 
-auth = authentications = YAML::load(File.open(File.expand_path("../../../fixtures/authentications.yml", __FILE__)))
+auth = YAML::load(File.open(File.expand_path("../../../fixtures/authentications.yml", __FILE__)))
 
 # Queue Spec
 describe Subordinate::Client do
