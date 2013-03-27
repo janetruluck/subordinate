@@ -32,7 +32,6 @@ module Subordinate
       endpoint = ssl ? "https://" : "http://"
       endpoint << "#{self.username}:#{self.api_token}@" if self.authenticated?
       endpoint << "#{self.subdomain}.#{self.domain}:#{self.port}"
-      endpoint << "?depth=#{self.depth}" if !depth.nil?
       self.api_endpoint = endpoint
     end
 

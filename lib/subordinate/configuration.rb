@@ -8,8 +8,7 @@ module Subordinate
       :domain,
       :subdomain,
       :port,
-      :ssl,
-      :depth
+      :ssl
     ]
 
     attr_accessor(*VALID_OPTIONS_KEYS)
@@ -29,7 +28,6 @@ module Subordinate
       self.subdomain           = nil
       self.port                = nil
       self.ssl                 = true
-      self.depth               = nil
     end
   end
 end
