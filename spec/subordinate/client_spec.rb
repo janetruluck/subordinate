@@ -52,12 +52,6 @@ describe Subordinate::Client do
       client = Subordinate::Client.new(:api_key => ENV["API_KEY"], :ssl => ssl )
       client.ssl.should == ssl
     end
-
-    it "can be configured to use a different depth option via options" do
-      depth = false
-      client = Subordinate::Client.new(:api_key => ENV["API_KEY"], :depth => depth )
-      client.depth.should == depth
-    end
   end
 
   describe "#respond_to?" do
