@@ -7,6 +7,7 @@ require "subordinate/client/job"
 require "subordinate/client/system"
 require "subordinate/client/build"
 require "subordinate/client/queue"
+require "subordinate/client/load"
 
 module Subordinate
   class Client
@@ -43,5 +44,6 @@ module Subordinate
     include Subordinate::Client::System
     include Subordinate::Client::Build
     include Subordinate::Client::Queue
+    include Subordinate::Client::Load
   end
 end
