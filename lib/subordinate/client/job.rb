@@ -78,11 +78,11 @@ module Subordinate
       # @return [Integer] status
       #
       # @example Disable the job
-      #   Subordinate::Client.disable("My-Job-I-Want-Info-On")
+      #   Subordinate::Client.delete("My-Job-I-Want-Info-On")
       #
       # @author Jason Truluck
       def delete_job(job, options = {})
-        post("job/#{job}/disable", options).status
+        post("job/#{job}/delete", options).status
       end
     end
   end
