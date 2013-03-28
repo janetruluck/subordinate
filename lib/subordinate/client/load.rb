@@ -7,7 +7,7 @@ module Subordinate
     module Load
       # Returns the current load statistics of the Jenkins server
       #
-      # @see http://jenkins.missioncontrol.io:8080/queue/api/
+      # @see https://ci.jenkins-ci.org:8080/queue/api/
       #
       # @return [Hashie::Mash] load statistics response
       #
