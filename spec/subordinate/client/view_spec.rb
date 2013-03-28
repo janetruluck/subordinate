@@ -46,12 +46,40 @@ describe Subordinate::Client do
     end
   end
 
+  describe "#all_views", :vcr do
+    let(:current_response) { subordinate.all_views }
+
+    it "returns the view response" do
+      current_response.should_not be_nil
+    end
+
+    context "methods" do
+      it "respond to .views" do
+        current_response.should respond_to(:views)
+      end
+
+      describe "within views" do
+        it "respond to .jobs" do
+          current_response.views.first.should respond_to(:jobs)
+        end
+
+        it "respond to .name" do
+          current_response.views.first.should respond_to(:name)
+        end
+
+        it "respond to .url" do
+          current_response.views.first.should respond_to(:url)
+        end
+      end
+    end
+  end
+
   describe "#add_job_to_view" do
     it "responds with a success" do
       stub_request(:post, "#{subordinate.api_endpoint}/view/#{auth['view']}/addJobToView").
       to_return(:status => 200, :body => "", :headers => {})
 
-      res = subordinate.add_job_to_view(auth['view'], auth['job']).status.should == 200
+      subordinate.add_job_to_view(auth['view'], auth['job']).status.should == 200
     end
   end
 

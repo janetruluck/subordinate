@@ -7,7 +7,7 @@ module Subordinate
     module View
       # Returns the specified view
       #
-      # @see http://ci.jenkins-ci.org:8080/view/All%20Unstable/api/json?pretty=true
+      # @see http://ci.jenkins-ci.org/view/All%20Unstable/api/json?pretty=true
       #
       # @param view_name [String] the name of the view you want inforamtion on
       #
@@ -21,9 +21,27 @@ module Subordinate
         get("view/#{view_name}/api/json", options)
       end
 
+      # Returns all of the views with their corresponding jobs
+      #
+      # @see https://ci.jenkins-ci.org/api/json?tree=views[name,jobs[name]]
+      #
+      # @return [Hashie::Mash] response containing all views on the server and their respective jobs
+      #
+      # @example Get all the views
+      #   Subordinate::Client.all_views
+      #
+      # @author Jason Truluck
+      def all_views(options = {})
+        options.merge!(
+          :tree => "views[name,url,jobs[name,url]]"
+        )
+        get("api/json", options)
+      end
+
+
       # Add a job to the Jenkins view
       #
-      # @see http://ci.jenkins-ci.org:8080/view/All%20Unstable/api/
+      # @see http://ci.jenkins-ci.org/view/All%20Unstable/api/
       #
       # @param view_name [String] the name of the view you want inforamtion on
       # @param job [String] the name of the job you want to add
@@ -35,7 +53,7 @@ module Subordinate
       #
       # @author Jason Truluck
       def add_job_to_view(view_name, job, options = {})
-        options.merge(
+        options.merge!(
           :name => job
         )
         post("view/#{view_name}/addJobToView", options)
@@ -43,7 +61,7 @@ module Subordinate
 
       # Remove a job to the Jenkins view
       #
-      # @see http://ci.jenkins-ci.org:8080/view/All%20Unstable/api/
+      # @see http://ci.jenkins-ci.org/view/All%20Unstable/api/
       #
       # @param view_name [String] the name of the view you want inforamtion on
       # @param job [String] the name of the job you want to remove
@@ -55,7 +73,7 @@ module Subordinate
       #
       # @author Jason Truluck
       def remove_job_from_view(view_name, job, options = {})
-        options.merge(
+        options.merge!(
           :name => job
         )
         post("view/#{view_name}/removeJobFromView", options)
