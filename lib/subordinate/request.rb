@@ -25,8 +25,13 @@ module Subordinate
         when :get
           request.url(path, options)
         when :post
-          request.path = path
-          request.body = MultiJson.dump(options) unless options.empty?
+          with_query_params = options.delete(:with_query_params) || false
+          if with_query_params
+            request.url(path, options)
+          else
+            request.path = path
+            request.body = MultiJson.dump(options) unless options.empty?
+          end
         end
       end
       response
