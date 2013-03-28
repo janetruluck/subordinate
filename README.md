@@ -71,6 +71,18 @@ Currently can retrieve information, console output, and timestamps
 client.build("Job-Name", 1)
 ```
 
+### [Views](http://rdoc.info/github/jasontruluck/subordinate/master/Subordinate/Client/View)
+
+Currently can retrieve all views, information about a single view, add jobs to a view, and remove jobs from a view
+
+```ruby
+client.all_views
+```
+
+```ruby
+client.view("My-Awesome-View-Name")
+```
+
 ###[System](http://rdoc.info/github/jasontruluck/subordinate/Subordinate/Client/System)
 
 Currently can safe restart, restart, and quiet down
