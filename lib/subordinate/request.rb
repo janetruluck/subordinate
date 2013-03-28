@@ -1,3 +1,5 @@
+require 'multi_json'
+
 module Subordinate
   module Request
     def get(path, options = {})
