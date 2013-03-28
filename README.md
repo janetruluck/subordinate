@@ -87,6 +87,14 @@ Retrieves the current build queue for the Jenkins server
 client.build_queue
 ```
 
+### [Load Statistics](http://rdoc.info/github/jasontruluck/subordinate/master/Subordinate/Client/Load)
+
+Retrieves the load statistics from the Jenkins server
+
+```ruby
+client.load_statistics
+```
+
 ### Using Depth query parameter
 
 For methods that allow you to specify a depth simply pass the depth you want via an option
