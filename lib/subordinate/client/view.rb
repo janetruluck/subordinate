@@ -54,6 +54,7 @@ module Subordinate
       # @author Jason Truluck
       def add_job_to_view(view_name, job, options = {})
         options.merge!(
+          :with_query_params => true,
           :name => job
         )
         post("view/#{view_name}/addJobToView", options)
@@ -74,6 +75,7 @@ module Subordinate
       # @author Jason Truluck
       def remove_job_from_view(view_name, job, options = {})
         options.merge!(
+          :with_query_params => true,
           :name => job
         )
         post("view/#{view_name}/removeJobFromView", options)
