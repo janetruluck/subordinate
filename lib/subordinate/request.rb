@@ -24,7 +24,7 @@ module Subordinate
           request.url(path, options)
         when :post
           request.path = path
-          request.body = options unless options.empty?
+          request.body = MultiJson.dump(options) unless options.empty?
         end
       end
       response
