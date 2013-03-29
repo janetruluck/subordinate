@@ -1,22 +1,22 @@
 require "spec_helper"
 
-auth = YAML::load(File.open(File.expand_path("../../../fixtures/authentications.yml", __FILE__)))
+
 
 # Client Spec
 describe Subordinate::Client do
   before do
     Subordinate.reset!
     Subordinate.configure do |c|
-      c.subdomain = auth["subdomain"]
-      c.domain    = auth["domain"]
-      c.port      = auth["port"]
+      c.subdomain = ENV["SUBDOMAIN"]
+      c.domain    = ENV["DOMAIN"]
+      c.port      = ENV["PORT"]
       c.ssl       = false
     end
   end
-  let(:subordinate) { Subordinate::Client.new(:username => auth["username"], :api_token => auth["token"]) }
+  let(:subordinate) { Subordinate::Client.new(:username => ENV["USERNAME"], :api_token => ENV["TOKEN"]) }
 
   describe "#job", :vcr do
-    let(:current_response) { subordinate.job(auth["job"]) }
+    let(:current_response) { subordinate.job(ENV["JOB"]) }
 
     it "should return the job response" do
       current_response.should_not be_nil
@@ -135,37 +135,37 @@ describe Subordinate::Client do
 
   describe "#build_job" do
     it "builds the job specified" do
-      stub_request(:post, "#{subordinate.api_endpoint}/job/#{auth['job']}/build").
+      stub_request(:post, "#{subordinate.api_endpoint}/job/#{ENV["JOB"]}/build").
       to_return(:status => 302, :body => "", :headers => {})
 
-      subordinate.build_job(auth["job"]).should  == 302
+      subordinate.build_job(ENV["JOB"]).should  == 302
     end
   end
 
   describe "#disable_job" do
     it "disables the specified job" do
-      stub_request(:post, "#{subordinate.api_endpoint}/job/#{auth['job']}/disable").
+      stub_request(:post, "#{subordinate.api_endpoint}/job/#{ENV["JOB"]}/disable").
       to_return(:status => 302, :body => "", :headers => {})
 
-      subordinate.disable_job(auth["job"]).should == 302
+      subordinate.disable_job(ENV["JOB"]).should == 302
     end
   end
 
   describe "#enable_job" do
     it "enables the specified job" do
-      stub_request(:post, "#{subordinate.api_endpoint}/job/#{auth['job']}/enable").
+      stub_request(:post, "#{subordinate.api_endpoint}/job/#{ENV["JOB"]}/enable").
       to_return(:status => 302, :body => "", :headers => {})
 
-      subordinate.enable_job(auth["job"]).should == 302
+      subordinate.enable_job(ENV["JOB"]).should == 302
     end
   end
 
   describe "#delete_job" do
     it "deletes the specified job" do
-      stub_request(:post, "#{subordinate.api_endpoint}/job/#{auth['job']}/delete").
+      stub_request(:post, "#{subordinate.api_endpoint}/job/#{ENV["JOB"]}/delete").
       to_return(:status => 302, :body => "", :headers => {})
 
-      subordinate.delete_job(auth["job"]).should == 302
+      subordinate.delete_job(ENV["JOB"]).should == 302
     end
   end
 end

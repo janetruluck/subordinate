@@ -1,23 +1,21 @@
 require "spec_helper"
 
-auth = YAML::load(File.open(File.expand_path("../../../fixtures/authentications.yml", __FILE__)))
-
 # View Spec
 describe Subordinate::Client do
   before do
     Subordinate.reset!
     Subordinate.configure do |c|
-      c.subdomain = auth["subdomain"]
-      c.domain    = auth["domain"]
-      c.port      = auth["port"]
+      c.subdomain = ENV["SUBDOMAIN"]
+      c.domain    = ENV["DOMAIN"]
+      c.port      = ENV["PORT"]
       c.ssl       = false
     end
   end
 
-  let(:subordinate) { Subordinate::Client.new(:username => auth["username"], :api_token => auth["token"]) }
+  let(:subordinate) { Subordinate::Client.new(:username => ENV["USERNAME"], :api_token => ENV["TOKEN"]) }
 
   describe "#view", :vcr do
-    let(:current_response) { subordinate.view(auth["view"]) }
+    let(:current_response) { subordinate.view(ENV["VIEW"]) }
 
     it "returns the view response" do
       current_response.should_not be_nil
@@ -76,19 +74,19 @@ describe Subordinate::Client do
 
   describe "#add_job_to_view" do
     it "responds with a success" do
-      stub_request(:post, "#{subordinate.api_endpoint}/view/#{auth['view']}/addJobToView").
+      stub_request(:post, "#{subordinate.api_endpoint}/view/#{ENV["VIEW"]}/addJobToView").
       to_return(:status => 200, :body => "", :headers => {})
 
-      subordinate.add_job_to_view(auth['view'], auth['job']).status.should == 200
+      subordinate.add_job_to_view(ENV["VIEW"], ENV["JOB"]).status.should == 200
     end
   end
 
   describe "#remove_job_from_view" do
     it "responds with a success" do
-      stub_request(:post, "#{subordinate.api_endpoint}/view/#{auth['view']}/removeJobFromView").
+      stub_request(:post, "#{subordinate.api_endpoint}/view/#{ENV["VIEW"]}/removeJobFromView").
       to_return(:status => 200, :body => "", :headers => {})
 
-      subordinate.remove_job_from_view(auth['view'], auth['job']).status.should == 200
+      subordinate.remove_job_from_view(ENV["VIEW"], ENV["JOB"]).status.should == 200
     end
   end
 end

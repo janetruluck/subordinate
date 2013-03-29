@@ -22,7 +22,11 @@ require 'vcr'
 require "webmock/rspec"
 require "mocha/api"
 
-authentications = YAML::load(File.open(File.expand_path("../fixtures/authentications.yml", __FILE__)))
+authentications = File.expand_path("../fixtures/authentications.yml", __FILE__)
+if File.exists?(authentications)
+  ENV.update YAML::load(File.open(authentications))
+end
+
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/cassettes'
   c.hook_into :faraday
