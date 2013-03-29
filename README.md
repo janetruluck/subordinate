@@ -18,6 +18,8 @@ Or install it yourself as:
 
 ## Documentation
 
+http://rdoc.info/github/jasontruluck/subordinate/master/index
+
 ## Configuration
 
 Configuration allows for specifying your Jenkins instances variables
