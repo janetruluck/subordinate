@@ -151,6 +151,7 @@ domain:    mydomain.com           # The domain of your Jenkins server
 port:      8080                   # The port of your Jenkins Server
 subdomain: jenkins                # The subdomain of your Jenkins Server
 job:       My-Jenkins-Job         # The job that you want to run tests on
+view:      My-awesome-view        # The view that you want to run tests on
 ```
 
 A sample is included in the [source](https://github.com/jasontruluck/subordinate/blob/master/spec/fixtures/authentications.yml.sample).
