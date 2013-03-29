@@ -122,7 +122,7 @@ The default depth is 0 for all methods.
 `tree` parameters are more efficient than using depth with exclude. They are available ot any methods that except them via options as well
 
 ```ruby
-client.root({:tree => "jobs[name],views[name,jobs[name]]"}) 
+client.root({:tree => "jobs[name],views[name,jobs[name]]"})
 ```
 
 A note from Jenkins: for array-type properties (such as jobs in this example), the name must be given in the original plural, not in the singular as the element would appear in XML (<job>). This will be more natural for e.g. json?tree=jobs[name] anyway: the JSON writer does not do plural-to-singular mangling because arrays are represented explicitly.
@@ -137,12 +137,13 @@ Add a sample authentications file to your `spec/fixtures` directory:
 
 ```ruby
 #spec/fixtures/authentications.yml
-username:  jasontruluck           # Your Username
-token:     12345678901234567890   # Your Jenkins Token (found at jenkins-server/user/your-user-name/configure)
-domain:    mydomain.com           # The domain of your Jenkins server
-port:      8080                   # The port of your Jenkins Server
-subdomain: jenkins                # The subdomain of your Jenkins Server
-job:       My-Jenkins-Job         # The job that you want to run tests on
+USERNAME:  jasontruluck           # Your Username
+TOKEN:     12345678901234567890   # Your Jenkins Token (found at jenkins-server/user/your-user-name/configure)
+DOMAIN:    mydomain.com           # The domain of your Jenkins server
+PORT:      8080                   # The port of your Jenkins Server
+SUBDOMAIN: jenkins                # The subdomain of your Jenkins Server
+JOB:       My-Jenkins-Job         # The job that you want to run tests on
+VIEW:      My-awesome-view        # The view that you want to run tests on
 ```
 
 A sample is included in the [source](https://github.com/jasontruluck/subordinate/blob/master/spec/fixtures/authentications.yml.sample).
