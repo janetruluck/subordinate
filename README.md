@@ -1,4 +1,4 @@
-# Subordinate
+# Subordinate [![Code Climate](https://codeclimate.com/github/jasontruluck/subordinate.png)](https://codeclimate.com/github/jasontruluck/subordinate)
 
 Subordinate is a api wrapper for the Jenkins API. It is not exhaustive at the moment and is being built out.
 
@@ -89,6 +89,14 @@ Currently can safe restart, restart, and quiet down
 
 ```ruby
 client.restart
+```
+
+###[People](http://rdoc.info/github/jasontruluck/subordinate/master/Subordinate/Client/People)
+
+Retrieve the users on the Jenkins server
+
+```ruby
+client.people
 ```
 
 ### [Build Queue](http://rdoc.info/github/jasontruluck/subordinate/master/Subordinate/Client/Queue)
