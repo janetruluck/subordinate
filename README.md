@@ -1,4 +1,4 @@
-# Subordinate
+# Subordinate [![Build Status](https://travis-ci.org/jasontruluck/subordinate.png?branch=add-travis-ci)](https://travis-ci.org/jasontruluck/subordinate) [![Code Climate](https://codeclimate.com/github/jasontruluck/subordinate.png)](https://codeclimate.com/github/jasontruluck/subordinate)
 
 Subordinate is a api wrapper for the Jenkins API. It is not exhaustive at the moment and is being built out.
 
@@ -18,6 +18,8 @@ Or install it yourself as:
 
 ## Documentation
 
+http://rdoc.info/github/jasontruluck/subordinate/master/index
+
 ## Configuration
 
 Configuration allows for specifying your Jenkins instances variables
@@ -34,10 +36,10 @@ Within an initializer `config/initializer/subordinate.rb`
 
 ```ruby
 Subordinate.configure do |c|
-    c.subdomain = "subdomain"
-    c.domain    = "domain"
-    c.port      = 1234
-    c.ssl       = false
+  c.subdomain = "subdomain"
+  c.domain    = "domain"
+  c.port      = 1234
+  c.ssl       = false
 end
 ```
 
@@ -89,6 +91,14 @@ Currently can safe restart, restart, and quiet down
 
 ```ruby
 client.restart
+```
+
+###[People](http://rdoc.info/github/jasontruluck/subordinate/master/Subordinate/Client/People)
+
+Retrieve the users on the Jenkins server
+
+```ruby
+client.people
 ```
 
 ### [Build Queue](http://rdoc.info/github/jasontruluck/subordinate/master/Subordinate/Client/Queue)
