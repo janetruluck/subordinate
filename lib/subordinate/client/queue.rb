@@ -7,7 +7,7 @@ module Subordinate
     module Queue
       # Returns the current build queue for the system
       #
-      # @see http://jenkins.missioncontrol.io:8080/queue/api/
+      # @see http://ci.jenkins-ci.org/queue/api/
       #
       # @return [Hashie::Mash] build queue response
       #
