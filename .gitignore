@@ -19,3 +19,5 @@ spec/cassettes
 .DS_Store
 
 spec/fixtures/authentications.yml
+
+spec/irb_setup_script.rb
