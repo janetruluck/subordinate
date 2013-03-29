@@ -8,6 +8,7 @@ require "subordinate/client/system"
 require "subordinate/client/build"
 require "subordinate/client/queue"
 require "subordinate/client/load"
+require "subordinate/client/people"
 require "subordinate/client/view"
 
 module Subordinate
@@ -46,6 +47,7 @@ module Subordinate
     include Subordinate::Client::Build
     include Subordinate::Client::Queue
     include Subordinate::Client::Load
+    include Subordinate::Client::People
     include Subordinate::Client::View
   end
 end
