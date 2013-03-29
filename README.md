@@ -36,10 +36,10 @@ Within an initializer `config/initializer/subordinate.rb`
 
 ```ruby
 Subordinate.configure do |c|
-    c.subdomain = "subdomain"
-    c.domain    = "domain"
-    c.port      = 1234
-    c.ssl       = false
+  c.subdomain = "subdomain"
+  c.domain    = "domain"
+  c.port      = 1234
+  c.ssl       = false
 end
 ```
 
