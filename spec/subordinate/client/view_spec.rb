@@ -74,7 +74,7 @@ describe Subordinate::Client do
 
   describe "#add_job_to_view" do
     it "responds with a success" do
-      stub_request(:post, "#{subordinate.api_endpoint}/view/#{ENV["VIEW"]}/addJobToView").
+      stub_request(:post, "#{subordinate.api_endpoint}/view/#{ENV["VIEW"]}/addJobToView?name=#{ENV['JOB']}").
       to_return(:status => 200, :body => "", :headers => {})
 
       subordinate.add_job_to_view(ENV["VIEW"], ENV["JOB"]).status.should == 200
@@ -83,7 +83,7 @@ describe Subordinate::Client do
 
   describe "#remove_job_from_view" do
     it "responds with a success" do
-      stub_request(:post, "#{subordinate.api_endpoint}/view/#{ENV["VIEW"]}/removeJobFromView").
+      stub_request(:post, "#{subordinate.api_endpoint}/view/#{ENV["VIEW"]}/removeJobFromView?name=#{ENV['JOB']}").
       to_return(:status => 200, :body => "", :headers => {})
 
       subordinate.remove_job_from_view(ENV["VIEW"], ENV["JOB"]).status.should == 200
