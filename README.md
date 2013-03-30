@@ -1,4 +1,4 @@
-# Subordinate [![Build Status](https://travis-ci.org/jasontruluck/subordinate.png?branch=add-travis-ci)](https://travis-ci.org/jasontruluck/subordinate) [![Code Climate](https://codeclimate.com/github/jasontruluck/subordinate.png)](https://codeclimate.com/github/jasontruluck/subordinate)
+# Subordinate [![Build Status](https://travis-ci.org/jasontruluck/subordinate.png?branch=add-travis-ci)](https://travis-ci.org/jasontruluck/subordinate) [![Code Climate](https://codeclimate.com/github/jasontruluck/subordinate.png)](https://codeclimate.com/github/jasontruluck/subordinate) [![Coverage Status](https://coveralls.io/repos/jasontruluck/subordinate/badge.png?branch=master)](https://coveralls.io/r/jasontruluck/subordinate)
 
 Subordinate is a api wrapper for the Jenkins API. It is not exhaustive at the moment and is being built out.
 
@@ -107,6 +107,14 @@ Retrieves the current build queue for the Jenkins server
 
 ```ruby
 client.build_queue
+```
+
+### [Build Executor](http://rdoc.info/github/jasontruluck/subordinate/master/Subordinate/Client/Executor)
+
+Retrieves the build executors status and information from the Jenkins server
+
+```ruby
+client.build_executor
 ```
 
 ### [Load Statistics](http://rdoc.info/github/jasontruluck/subordinate/master/Subordinate/Client/Load)
