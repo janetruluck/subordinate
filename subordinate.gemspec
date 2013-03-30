@@ -24,6 +24,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency "webmock"
   gem.add_development_dependency "simplecov"
   gem.add_development_dependency "capybara"
+  gem.add_development_dependency "coveralls"
   gem.add_development_dependency "yard"
   gem.add_development_dependency "redcarpet"
 
