@@ -10,6 +10,7 @@ require "subordinate/client/queue"
 require "subordinate/client/load"
 require "subordinate/client/people"
 require "subordinate/client/view"
+require "subordinate/client/executor"
 
 module Subordinate
   class Client
@@ -49,5 +50,6 @@ module Subordinate
     include Subordinate::Client::Load
     include Subordinate::Client::People
     include Subordinate::Client::View
+    include Subordinate::Client::Executor
   end
 end
