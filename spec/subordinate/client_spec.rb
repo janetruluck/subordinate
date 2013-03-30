@@ -13,6 +13,11 @@ describe Subordinate::Client do
   end
 
   describe "#initialize" do
+    let(:domain)    { "woofound.com" }
+    let(:subdomain) { "awesome" }
+    let(:port)      { 2000 }
+    let(:ssl)       { false }
+
     it "can be initialized" do
       Subordinate::Client.new.class.should == Subordinate::Client
     end
@@ -27,26 +32,27 @@ describe Subordinate::Client do
       raise_exception
     end
 
+    it "generates an endpoint without username and api token" do
+      client = Subordinate::Client.new(:api_key => ENV["API_KEY"] )
+      client.api_endpoint.should_not include("#{ENV["USERNAME"]}:#{ENV["API_KEY"]}")
+    end
+
     it "can be configured to use a new domain via options" do
-      domain = "woofound.com"
       client = Subordinate::Client.new(:api_key => ENV["API_KEY"], :domain => domain )
       client.domain.should == domain
     end
 
     it "can be configured to use a new subdomain via options" do
-      subdomain = "awesome"
       client = Subordinate::Client.new(:api_key => ENV["API_KEY"], :subdomain => subdomain )
       client.subdomain.should == subdomain
     end
 
     it "can be configured to use a new port via options" do
-      port = 2000
       client = Subordinate::Client.new(:api_key => ENV["API_KEY"], :port => port )
       client.port.should == port
     end
 
     it "can be configured to use a different ssl option via options" do
-      ssl = false
       client = Subordinate::Client.new(:api_key => ENV["API_KEY"], :ssl => ssl )
       client.ssl.should == ssl
     end
