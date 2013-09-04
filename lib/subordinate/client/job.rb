@@ -37,6 +37,23 @@ module Subordinate
         post("job/#{job}/build", options).status
       end
 
+      # Builds the job specified on the Jenkins server with specified parameters
+      # Specify the parameters within the options hash
+      #
+      # @see https://ci.jenkins-ci.org/job/jenkins_rc_branch/api/
+      #
+      # @param [String] job the job that you want to build
+      #
+      # @return [Integer] status
+      #
+      # @example Build the job
+      #   Subordinate::Client.build_job_with_params("My-Job-I-Want-Info-On", { "some_param" => value })
+      #
+      # @author Jason Truluck
+      def build_job_with_params(job, options = {})
+        post("job/#{job}/buildWithParameters", options).status
+      end
+
       # Disables the specified job on the Jenkins Server
       #
       # @see https://ci.jenkins-ci.org/job/jenkins_rc_branch/api/

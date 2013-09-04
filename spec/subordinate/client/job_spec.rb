@@ -142,6 +142,15 @@ describe Subordinate::Client do
     end
   end
 
+  describe "#build_job_with_params" do
+    it "builds the job specified with the parameters specified" do
+      stub_request(:post, "#{subordinate.api_endpoint}/job/#{ENV["JOB"]}/buildWithParameters").
+      to_return(:status => 302, :body => "", :headers => {})
+
+      subordinate.build_job_with_params(ENV["JOB"]).should  == 302
+    end
+  end
+
   describe "#disable_job" do
     it "disables the specified job" do
       stub_request(:post, "#{subordinate.api_endpoint}/job/#{ENV["JOB"]}/disable").
