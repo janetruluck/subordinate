@@ -2,7 +2,6 @@ require 'rubygems'
 require 'coveralls'
 Coveralls.wear!
 
-# This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 
 if ENV['RAILS_ENV'] == 'test'
@@ -20,7 +19,6 @@ if ENV['RAILS_ENV'] == 'test'
 end
 
 require 'subordinate'
-require 'vcr'
 require "webmock/rspec"
 require "mocha/api"
 
@@ -29,21 +27,16 @@ if File.exists?(authentications)
   ENV.update YAML::load(File.open(authentications))
 end
 
-VCR.configure do |c|
-  c.cassette_library_dir = 'spec/cassettes'
-  c.hook_into :faraday
-  c.ignore_localhost = true
-  # Uncomment if you need to log VCR
-  # c.debug_logger = File.open(Rails.root.join("log","vcr_debugger.log"), 'w')
-  c.configure_rspec_metadata!
-  c.allow_http_connections_when_no_cassette = true
-end
-
-WebMock.allow_net_connect!
-
 Dir[File.expand_path("spec/support/**/*.rb", __FILE__)].each {|f| require f}
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.order                                           = "random"
+end
+
+def stub_jenkins(http_method = :any, endpoint = "/", status = 200, content_type = "application/json", response)
+  stub_request(http_method, "http://username:someapitoken@jenkins.missioncontrol.io:8080#{endpoint}").
+  to_return(:status => status, 
+    :body => File.read(File.expand_path("../support/mocks/#{response}", __FILE__)),
+    :headers =>{'Accept' => content_type, 'Content-type' => content_type})
 end
