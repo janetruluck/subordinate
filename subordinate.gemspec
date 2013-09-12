@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Jenkins API wrapper}
   gem.summary       = gem.description
   gem.homepage      = "https://github.com/jasontruluck/subordinate"
+  gem.license       = "MIT"
 
   # gem.add_dependency "faraday"
   gem.add_dependency "faraday"
