@@ -1,22 +1,23 @@
+# Job Spec
 require "spec_helper"
 
-
-
-# Client Spec
 describe Subordinate::Client do
   before do
     Subordinate.reset!
     Subordinate.configure do |c|
-      c.subdomain = ENV["SUBDOMAIN"]
-      c.domain    = ENV["DOMAIN"]
-      c.port      = ENV["PORT"]
+      c.subdomain = "jenkins"
+      c.domain    = "example.com"
+      c.port      = 8080
       c.ssl       = false
     end
   end
-  let(:subordinate) { Subordinate::Client.new(:username => ENV["USERNAME"], :api_token => ENV["TOKEN"]) }
 
-  describe "#job", :vcr do
-    let(:current_response) { subordinate.job(ENV["JOB"]) }
+  let(:subordinate) { Subordinate::Client.new(:username => "someusername", :api_token => "sometoken") }
+
+  describe "#job" do
+    before(:each) { stub_jenkins(:get, "/job/Some-Job/api/json", "job.json") }
+
+    let(:current_response) { subordinate.job("Some-Job") }
 
     it "should return the job response" do
       current_response.should_not be_nil
@@ -135,46 +136,41 @@ describe Subordinate::Client do
 
   describe "#build_job" do
     it "builds the job specified" do
-      stub_request(:post, "#{subordinate.api_endpoint}/job/#{ENV["JOB"]}/build").
-      to_return(:status => 302, :body => "", :headers => {})
+      stub_jenkins(:post, "/job/Some-Job/build", 302, "empty.json")
 
-      subordinate.build_job(ENV["JOB"]).should  == 302
+      subordinate.build_job("Some-Job").should  == 302
     end
   end
 
   describe "#build_job_with_params" do
     it "builds the job specified with the parameters specified" do
-      stub_request(:post, "#{subordinate.api_endpoint}/job/#{ENV["JOB"]}/buildWithParameters").
-      to_return(:status => 302, :body => "", :headers => {})
+      stub_jenkins(:post, "/job/Some-Job/buildWithParameters", 302, "empty.json")
 
-      subordinate.build_job_with_params(ENV["JOB"]).should  == 302
+      subordinate.build_job_with_params("Some-Job").should  == 302
     end
   end
 
   describe "#disable_job" do
     it "disables the specified job" do
-      stub_request(:post, "#{subordinate.api_endpoint}/job/#{ENV["JOB"]}/disable").
-      to_return(:status => 302, :body => "", :headers => {})
+      stub_jenkins(:post, "/job/Some-Job/disable", 302, "empty.json")
 
-      subordinate.disable_job(ENV["JOB"]).should == 302
+      subordinate.disable_job("Some-Job").should == 302
     end
   end
 
   describe "#enable_job" do
     it "enables the specified job" do
-      stub_request(:post, "#{subordinate.api_endpoint}/job/#{ENV["JOB"]}/enable").
-      to_return(:status => 302, :body => "", :headers => {})
+      stub_jenkins(:post, "/job/Some-Job/enable", 302, "empty.json")
 
-      subordinate.enable_job(ENV["JOB"]).should == 302
+      subordinate.enable_job("Some-Job").should == 302
     end
   end
 
   describe "#delete_job" do
     it "deletes the specified job" do
-      stub_request(:post, "#{subordinate.api_endpoint}/job/#{ENV["JOB"]}/delete").
-      to_return(:status => 302, :body => "", :headers => {})
+      stub_jenkins(:post, "/job/Some-Job/delete", 302, "empty.json")
 
-      subordinate.delete_job(ENV["JOB"]).should == 302
+      subordinate.delete_job("Some-Job").should == 302
     end
   end
 end
