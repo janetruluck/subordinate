@@ -22,11 +22,6 @@ require 'subordinate'
 require "webmock/rspec"
 require "mocha/api"
 
-authentications = File.expand_path("../fixtures/authentications.yml", __FILE__)
-if File.exists?(authentications)
-  ENV.update YAML::load(File.open(authentications))
-end
-
 Dir[File.expand_path("spec/support/**/*.rb", __FILE__)].each {|f| require f}
 
 RSpec.configure do |config|
@@ -35,7 +30,7 @@ RSpec.configure do |config|
 end
 
 def stub_jenkins(http_method = :any, endpoint = "/", status = 200, content_type = "application/json", response)
-  stub_request(http_method, "http://username:someapitoken@jenkins.missioncontrol.io:8080#{endpoint}").
+  stub_request(http_method, "http://someusername:sometoken@jenkins.example.com:8080#{endpoint}").
   to_return(:status => status, 
     :body => File.read(File.expand_path("../support/mocks/#{response}", __FILE__)),
     :headers =>{'Accept' => content_type, 'Content-type' => content_type})
