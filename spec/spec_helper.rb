@@ -20,7 +20,6 @@ end
 
 require 'subordinate'
 require "webmock/rspec"
-require "mocha/api"
 
 Dir[File.expand_path("spec/support/**/*.rb", __FILE__)].each {|f| require f}
 
