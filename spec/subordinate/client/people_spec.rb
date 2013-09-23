@@ -1,19 +1,22 @@
+# Queue Spec
 require "spec_helper"
 
-# Queue Spec
 describe Subordinate::Client do
   before do
     Subordinate.reset!
     Subordinate.configure do |c|
-      c.subdomain = ENV["SUBDOMAIN"]
-      c.domain    = ENV["DOMAIN"]
-      c.port      = ENV["PORT"]
+      c.subdomain = "jenkins"
+      c.domain    = "example.com"
+      c.port      = 8080
       c.ssl       = false
     end
   end
-  let(:subordinate) { Subordinate::Client.new(:username => ENV["USERNAME"], :api_token => ENV["TOKEN"]) }
 
-  describe "#people", :vcr do
+  let(:subordinate) { Subordinate::Client.new(:username => "someusername", :api_token => "sometoken") }
+
+  describe "#people" do
+    before(:each) { stub_jenkins(:get, "/asynchPeople/api/json", "people.json") }
+
     let(:current_response) { subordinate.people }
 
     it "returns the users response" do

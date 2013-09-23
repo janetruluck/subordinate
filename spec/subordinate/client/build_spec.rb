@@ -1,22 +1,23 @@
+# Build Spec
 require "spec_helper"
 
-
-
-# Client Spec
 describe Subordinate::Client do
-  before do
+  before(:each) do
     Subordinate.reset!
     Subordinate.configure do |c|
-      c.subdomain = ENV["SUBDOMAIN"]
-      c.domain    = ENV["DOMAIN"]
-      c.port      = ENV["PORT"]
+      c.subdomain = "jenkins"
+      c.domain    = "example.com"
+      c.port      = 8080
       c.ssl       = false
     end
   end
-  let(:subordinate) { Subordinate::Client.new(:username => ENV["USERNAME"], :api_token => ENV["TOKEN"]) }
 
-  describe "#build", :vcr do
-    let(:current_response) { subordinate.build(ENV["JOB"], 1) }
+  let(:subordinate) { Subordinate::Client.new(:username => "someusername", :api_token => "sometoken") }
+
+  describe "#build" do
+    before(:each) {stub_jenkins(:get, "/job/Some-Job/1/api/json", "build.json") }
+
+    let(:current_response) { subordinate.build("Some-Job", 1) }
 
     it "returns the job response" do
       current_response.should_not be_nil
@@ -95,43 +96,58 @@ describe Subordinate::Client do
 
   describe "#build_timestamp" do
     it "returns the timestamp of the specified build" do
-      stub_request(:get, "#{subordinate.api_endpoint}/job/#{ENV["JOB"]}/1/buildTimestamp").
-      to_return(:status => 302, :body => "3/25/13 3:30 AM", :headers => {})
+      stub_jenkins(:get, "/job/Some-Job/1/buildTimestamp", 302, "text/plain", "build_timestamp.txt")
 
-
-      subordinate.build_timestamp(ENV["JOB"], 1).should == "3/25/13 3:30 AM"
+      subordinate.build_timestamp("Some-Job", 1).should == "9/9/13 9:32 PM"
     end
 
     it "returns the timestamp in the specified format" do
-      stub_request(:get, "#{subordinate.api_endpoint}/job/#{ENV["JOB"]}/1/buildTimestamp?format=yyyy/MM/dd").
-      to_return(:status => 302, :body => "2013/03/25", :headers => {})
+      stub_jenkins(:get, "/job/Some-Job/1/buildTimestamp?format=yyyy/MM/dd", 302, "text/plain", "build_timestamp_formatted.txt")
 
-      subordinate.build_timestamp(ENV["JOB"], 1, "yyyy/MM/dd").should == "2013/03/25"
+      subordinate.build_timestamp("Some-Job", 1, "yyyy/MM/dd").should == "2013/03/25"
     end
   end
 
-  describe "#console_output_for_build", :vcr do
-    it "returns the console output for a complete build" do
-      response = subordinate.console_output_for_build(ENV["JOB"], 1)
-      response.should_not be_nil
-      response.should_not include("javax.servlet.ServletException:")
+  describe "#console_output_for_build" do
+    context "complete console output" do
+      before(:each) { stub_jenkins(:get, "/job/Some-Job/1/logText/progressiveText?start=0", 200, "text/plain", "console_output.txt") }
+      let(:response) { subordinate.console_output_for_build("Some-Job", 1) }
+      
+      it "returns the console output for a complete build" do
+        response.should_not be_nil
+      end
+
+      it "is not an error" do
+        response.should_not include("javax.servlet.ServletException:")
+      end
     end
 
-    it "returns pre-formatted output" do
-      response = subordinate.console_output_for_build(ENV["JOB"], 1, nil, true)
-      response.should_not be_nil
-      response.should_not include("javax.servlet.ServletException:")
+    context "preformatted console output" do
+      before(:each) { stub_jenkins(:get, "/job/Some-Job/1/logText/progressiveHtml?start=0", 200, "text/html", "console_output_pre.html") }
+      let(:response) { subordinate.console_output_for_build("Some-Job", 1, nil, true) }
+      
+      it "returns the console output for a complete build" do
+        response.should_not be_nil
+      end
+
+      it "is not an error" do
+        response.should_not include("javax.servlet.ServletException:")
+      end
     end
 
-    context "byte size arguement" do
+    context "offset console output" do
+      before(:each) { 
+        stub_jenkins(:get, "/job/Some-Job/1/logText/progressiveText?start=0", 200, "text/plain", "console_output.txt") 
+        stub_jenkins(:get, "/job/Some-Job/1/logText/progressiveText?start=2000", 200, "text/plain", "console_output_offset.txt") 
+      }
+      let(:output1) {subordinate.console_output_for_build("Some-Job", 1, 2000) }
+      let(:output2) {subordinate.console_output_for_build("Some-Job", 1, 0) }
+
       it "returns data at byte 2000" do
-        subordinate.console_output_for_build(ENV["JOB"], 1, 2000).should_not be_nil
+        output1.should_not be_nil
       end
 
       it "when passed an offset of 2000 it is offset by 2000 bytes" do
-        output1 = subordinate.console_output_for_build(ENV["JOB"], 1, 2000)
-        output2 = subordinate.console_output_for_build(ENV["JOB"], 1, 0)
-
         output1.bytesize.should < output2.bytesize
       end
     end

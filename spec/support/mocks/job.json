@@ -1,0 +1,92 @@
+{
+  "actions" : [
+    {
+      
+    },
+    {
+      
+    },
+    {
+      
+    },
+    {
+      
+    }
+  ],
+  "description" : "",
+  "displayName" : "jenkins_rc_branch",
+  "displayNameOrNull" : null,
+  "name" : "jenkins_rc_branch",
+  "url" : "http://ci.jenkins-ci.org/view/Jenkins%20core/job/jenkins_rc_branch/",
+  "buildable" : true,
+  "builds" : [
+    {
+      "number" : 364,
+      "url" : "http://ci.jenkins-ci.org/view/Jenkins%20core/job/jenkins_rc_branch/364/"
+    }
+  ],
+  "color" : "blue",
+  "firstBuild" : {
+    "number" : 1,
+    "url" : "http://ci.jenkins-ci.org/view/Jenkins%20core/job/jenkins_rc_branch/1/"
+  },
+  "healthReport" : [
+    {
+      "description" : "Test Result: 0 tests failing out of a total of 4,520 tests.",
+      "iconUrl" : "health-80plus.png",
+      "score" : 100
+    },
+    {
+      "description" : "Build stability: No recent builds failed.",
+      "iconUrl" : "health-80plus.png",
+      "score" : 100
+    }
+  ],
+  "inQueue" : false,
+  "keepDependencies" : false,
+  "lastBuild" : {
+    "number" : 364,
+    "url" : "http://ci.jenkins-ci.org/view/Jenkins%20core/job/jenkins_rc_branch/364/"
+  },
+  "lastCompletedBuild" : {
+    "number" : 364,
+    "url" : "http://ci.jenkins-ci.org/view/Jenkins%20core/job/jenkins_rc_branch/364/"
+  },
+  "lastFailedBuild" : {
+    "number" : 355,
+    "url" : "http://ci.jenkins-ci.org/view/Jenkins%20core/job/jenkins_rc_branch/355/"
+  },
+  "lastStableBuild" : {
+    "number" : 364,
+    "url" : "http://ci.jenkins-ci.org/view/Jenkins%20core/job/jenkins_rc_branch/364/"
+  },
+  "lastSuccessfulBuild" : {
+    "number" : 364,
+    "url" : "http://ci.jenkins-ci.org/view/Jenkins%20core/job/jenkins_rc_branch/364/"
+  },
+  "lastUnstableBuild" : {
+    "number" : 363,
+    "url" : "http://ci.jenkins-ci.org/view/Jenkins%20core/job/jenkins_rc_branch/363/"
+  },
+  "lastUnsuccessfulBuild" : {
+    "number" : 363,
+    "url" : "http://ci.jenkins-ci.org/view/Jenkins%20core/job/jenkins_rc_branch/363/"
+  },
+  "nextBuildNumber" : 365,
+  "property" : [
+    {
+      
+    }
+  ],
+  "queueItem" : null,
+  "concurrentBuild" : false,
+  "downstreamProjects" : [
+    
+  ],
+  "scm" : {
+    
+  },
+  "upstreamProjects" : [
+    
+  ]
+}

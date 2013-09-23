@@ -1,0 +1,15 @@
+{
+  "users" : [
+    {
+      "lastChange" : 1375555742000,
+      "project" : {
+        "name" : "infra_commit_history_generation",
+        "url" : "http://ci.jenkins-ci.org/job/infra_commit_history_generation/"
+      },
+      "user" : {
+        "absoluteUrl" : "http://ci.jenkins-ci.org/user/someone",
+        "fullName" : "Some One"
+      }
+    }
+  ]
+}

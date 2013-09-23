@@ -1,0 +1,45 @@
+{
+  "description" : null,
+  "jobs" : [
+    {
+      "name" : "jenkins_lts_branch",
+      "url" : "http://ci.jenkins-ci.org/job/jenkins_lts_branch/",
+      "color" : "blue"
+    },
+    {
+      "name" : "jenkins_main_maven-3.1.0",
+      "url" : "http://ci.jenkins-ci.org/job/jenkins_main_maven-3.1.0/",
+      "color" : "blue"
+    },
+    {
+      "name" : "jenkins_main_trunk",
+      "url" : "http://ci.jenkins-ci.org/job/jenkins_main_trunk/",
+      "color" : "blue"
+    },
+    {
+      "name" : "jenkins_pom",
+      "url" : "http://ci.jenkins-ci.org/job/jenkins_pom/",
+      "color" : "blue"
+    },
+    {
+      "name" : "jenkins_rc_branch",
+      "url" : "http://ci.jenkins-ci.org/job/jenkins_rc_branch/",
+      "color" : "blue"
+    },
+    {
+      "name" : "jenkins_ui-changes_branch",
+      "url" : "http://ci.jenkins-ci.org/job/jenkins_ui-changes_branch/",
+      "color" : "red"
+    },
+    {
+      "name" : "remoting",
+      "url" : "http://ci.jenkins-ci.org/job/remoting/",
+      "color" : "blue"
+    }
+  ],
+  "name" : "Jenkins core",
+  "property" : [
+    
+  ],
+  "url" : "http://ci.jenkins-ci.org/view/Jenkins%20core/"
+}

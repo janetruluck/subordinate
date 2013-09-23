@@ -1,21 +1,23 @@
+# View Spec
 require "spec_helper"
 
-# View Spec
 describe Subordinate::Client do
   before do
     Subordinate.reset!
     Subordinate.configure do |c|
-      c.subdomain = ENV["SUBDOMAIN"]
-      c.domain    = ENV["DOMAIN"]
-      c.port      = ENV["PORT"]
+      c.subdomain = "jenkins"
+      c.domain    = "example.com"
+      c.port      = 8080
       c.ssl       = false
     end
   end
 
-  let(:subordinate) { Subordinate::Client.new(:username => ENV["USERNAME"], :api_token => ENV["TOKEN"]) }
+  let(:subordinate) { Subordinate::Client.new(:username => "someusername", :api_token => "sometoken") }
 
-  describe "#view", :vcr do
-    let(:current_response) { subordinate.view(ENV["VIEW"]) }
+  describe "#view" do
+    before(:each) { stub_jenkins(:get, "/view/someview/api/json", "view.json") }
+    
+    let(:current_response) { subordinate.view("someview") }
 
     it "returns the view response" do
       current_response.should_not be_nil
@@ -44,7 +46,9 @@ describe Subordinate::Client do
     end
   end
 
-  describe "#all_views", :vcr do
+  describe "#all_views" do
+    before(:each) { stub_jenkins(:get, "/api/json?tree=views%5Bname,url,jobs%5Bname,url%5D%5D", "views.json") }
+
     let(:current_response) { subordinate.all_views }
 
     it "returns the view response" do
@@ -74,19 +78,45 @@ describe Subordinate::Client do
 
   describe "#add_job_to_view" do
     it "responds with a success" do
-      stub_request(:post, "#{subordinate.api_endpoint}/view/#{ENV["VIEW"]}/addJobToView?name=#{ENV['JOB']}").
-      to_return(:status => 200, :body => "", :headers => {})
+      stub_jenkins(:post, "/view/someview/addJobToView?name=somejob", 200, "empty.json")
 
-      subordinate.add_job_to_view(ENV["VIEW"], ENV["JOB"]).status.should == 200
+      subordinate.add_job_to_view("someview", "somejob").status.should == 200
+    end
+
+    context "error" do
+      it "returns 404 when not found" do
+        stub_jenkins(:post, "/view/someview/addJobToView?name=somejob", 404, "empty.json")
+
+        subordinate.add_job_to_view("someview", "somejob").status.should == 404
+      end
+      
+      it "returns 500 when server error" do
+        stub_jenkins(:post, "/view/someview/addJobToView?name=somejob", 500, "empty.json")
+
+        subordinate.add_job_to_view("someview", "somejob").status.should == 500
+      end
     end
   end
 
   describe "#remove_job_from_view" do
     it "responds with a success" do
-      stub_request(:post, "#{subordinate.api_endpoint}/view/#{ENV["VIEW"]}/removeJobFromView?name=#{ENV['JOB']}").
-      to_return(:status => 200, :body => "", :headers => {})
+      stub_jenkins(:post, "/view/someview/removeJobFromView?name=somejob", 200, "empty.json")
 
-      subordinate.remove_job_from_view(ENV["VIEW"], ENV["JOB"]).status.should == 200
+      subordinate.remove_job_from_view("someview", "somejob").status.should == 200
+    end
+    
+    context "error" do
+      it "returns 404 when not found" do
+        stub_jenkins(:post, "/view/someview/removeJobFromView?name=somejob", 404, "empty.json")
+
+        subordinate.remove_job_from_view("someview", "somejob").status.should == 404
+      end
+      
+      it "returns 500 when server error" do
+        stub_jenkins(:post, "/view/someview/removeJobFromView?name=somejob", 500, "empty.json")
+
+        subordinate.remove_job_from_view("someview", "somejob").status.should == 500
+      end
     end
   end
 end

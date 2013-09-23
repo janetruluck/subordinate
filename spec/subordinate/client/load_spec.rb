@@ -5,15 +5,18 @@ describe Subordinate::Client do
   before do
     Subordinate.reset!
     Subordinate.configure do |c|
-      c.subdomain = ENV["SUBDOMAIN"]
-      c.domain    = ENV["DOMAIN"]
-      c.port      = ENV["PORT"]
+      c.subdomain = "jenkins"
+      c.domain    = "example.com"
+      c.port      = 8080
       c.ssl       = false
     end
   end
-  let(:subordinate) { Subordinate::Client.new(:username => ENV["USERNAME"], :api_token => ENV["TOKEN"]) }
 
-  describe "#load_statistics", :vcr do
+  let(:subordinate) { Subordinate::Client.new(:username => "someusername", :api_token => "sometoken") }
+
+  describe "#load_statistics" do
+    before(:each) { stub_jenkins(:get, "/overallLoad/api/json", "load_statistics.json") }
+
     let(:current_response) { subordinate.load_statistics }
 
     it "returns the load statistics response" do

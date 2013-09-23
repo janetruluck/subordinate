@@ -1,0 +1,126 @@
+{
+  "actions" : [
+    {
+      "causes" : [
+        {
+          "shortDescription" : "Started by an SCM change"
+        }
+      ]
+    },
+    {
+      
+    },
+    {
+      "buildsByBranchName" : {
+        "origin/rc" : {
+          "buildNumber" : 363,
+          "buildResult" : null,
+          "marked" : {
+            "SHA1" : "28d38cb39d048c0ceaeff34d033e90a7886aa251",
+            "branch" : [
+              {
+                "SHA1" : "28d38cb39d048c0ceaeff34d033e90a7886aa251",
+                "name" : "origin/rc"
+              }
+            ]
+          },
+          "revision" : {
+            "SHA1" : "28d38cb39d048c0ceaeff34d033e90a7886aa251",
+            "branch" : [
+              {
+                "SHA1" : "28d38cb39d048c0ceaeff34d033e90a7886aa251",
+                "name" : "origin/rc"
+              }
+            ]
+          }
+        }
+      },
+      "lastBuiltRevision" : {
+        "SHA1" : "28d38cb39d048c0ceaeff34d033e90a7886aa251",
+        "branch" : [
+          {
+            "SHA1" : "28d38cb39d048c0ceaeff34d033e90a7886aa251",
+            "name" : "origin/rc"
+          }
+        ]
+      },
+      "remoteUrls" : [
+        "git://github.com/jenkinsci/jenkins"
+      ],
+      "scmName" : ""
+    },
+    {
+      
+    },
+    {
+      
+    },
+    {
+      
+    },
+    {
+      "failCount" : 1,
+      "skipCount" : 5,
+      "totalCount" : 4513,
+      "urlName" : "testReport"
+    },
+    {
+      
+    }
+  ],
+  "artifacts" : [
+    {
+      "displayPath" : "cli-1.531-SNAPSHOT-jar-with-dependencies.jar",
+      "fileName" : "cli-1.531-SNAPSHOT-jar-with-dependencies.jar",
+      "relativePath" : "cli/target/cli-1.531-SNAPSHOT-jar-with-dependencies.jar"
+    }
+  ],
+  "building" : false,
+  "description" : null,
+  "duration" : 3083928,
+  "estimatedDuration" : 4359595,
+  "executor" : null,
+  "fullDisplayName" : "jenkins_rc_branch #363",
+  "id" : "2013-09-09_21-32-40",
+  "keepLog" : false,
+  "number" : 363,
+  "result" : "UNSTABLE",
+  "timestamp" : 1378776760497,
+  "url" : "http://ci.jenkins-ci.org/view/Jenkins%20core/job/jenkins_rc_branch/363/",
+  "builtOn" : "remote-slave-6",
+  "changeSet" : {
+    "items" : [
+      {
+        "affectedPaths" : [
+          "core/src/main/resources/lib/form/textbox.jelly",
+          "core/src/main/resources/lib/form/expandableTextbox.jelly",
+          "core/src/main/resources/lib/form/advanced.jelly",
+          "core/src/main/resources/lib/form/textarea.jelly"
+        ],
+        "commitId" : "7ce4807087239bbe236cb34e9a8d183caffefe73",
+        "timestamp" : 1367431809000,
+        "author" : {
+          "absoluteUrl" : "http://ci.jenkins-ci.org/user/Jesse%20Glick",
+          "fullName" : "Jesse Glick"
+        },
+        "comment" : "[JENKINS-3107] Expand an Advanced section if some fields are already customized.\nInitial implementation handles only text fields, not e.g. checkboxes.\n",
+        "date" : "2013-05-01 14:10:09 -0400",
+        "id" : "7ce4807087239bbe236cb34e9a8d183caffefe73",
+        "msg" : "[JENKINS-3107] Expand an Advanced section if some fields are already customized.",
+        "paths" : [
+          {
+            "editType" : "edit",
+            "file" : "core/src/main/resources/lib/form/textarea.jelly"
+          }
+        ]
+      }
+    ],
+    "kind" : "git"
+  },
+  "culprits" : [
+    {
+      "absoluteUrl" : "http://ci.jenkins-ci.org/user/Jesse%20Glick",
+      "fullName" : "Jesse Glick"
+    }
+  ]
+}
