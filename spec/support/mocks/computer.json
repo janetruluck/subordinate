@@ -1,0 +1,233 @@
+{
+  "busyExecutors" : 2,
+  "computer" : [
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "master",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : false,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 55656448,
+          "availableSwapSpace" : 23470403584,
+          "totalPhysicalMemory" : 8259125248,
+          "totalSwapSpace" : 24198729728
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 0
+        },
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 457938272256
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/var/lib/jenkins",
+          "size" : 457938272256
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : 0
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "remote-slave-3",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer-x.png",
+      "idle" : true,
+      "jnlpAgent" : true,
+      "launchSupported" : false,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : null,
+        "hudson.node_monitors.ArchitectureMonitor" : null,
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 5000
+        },
+        "hudson.node_monitors.TemporarySpaceMonitor" : null,
+        "hudson.node_monitors.DiskSpaceMonitor" : null,
+        "hudson.node_monitors.ClockMonitor" : null
+      },
+      "numExecutors" : 1,
+      "offline" : true,
+      "offlineCause" : {
+        
+      },
+      "offlineCauseReason" : "<span class=error style='display:inline-block'>Time out for last 5 try</span>",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "remote-slave-6",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : {
+          "availablePhysicalMemory" : 178163712,
+          "availableSwapSpace" : 4326428672,
+          "totalPhysicalMemory" : 4148932608,
+          "totalSwapSpace" : 5975830528
+        },
+        "hudson.node_monitors.ArchitectureMonitor" : "Linux (amd64)",
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 155
+        },
+        "hudson.node_monitors.TemporarySpaceMonitor" : {
+          "path" : "/tmp",
+          "size" : 27376930816
+        },
+        "hudson.node_monitors.DiskSpaceMonitor" : {
+          "path" : "/home/jenkins/slave",
+          "size" : 27376930816
+        },
+        "hudson.node_monitors.ClockMonitor" : {
+          "diff" : -1615
+        }
+      },
+      "numExecutors" : 2,
+      "offline" : false,
+      "offlineCause" : null,
+      "offlineCauseReason" : "",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "remote-slave-7",
+      "executors" : [
+        {
+          
+        },
+        {
+          
+        }
+      ],
+      "icon" : "computer-x.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : null,
+        "hudson.node_monitors.ArchitectureMonitor" : null,
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 5000
+        },
+        "hudson.node_monitors.TemporarySpaceMonitor" : null,
+        "hudson.node_monitors.DiskSpaceMonitor" : null,
+        "hudson.node_monitors.ClockMonitor" : null
+      },
+      "numExecutors" : 2,
+      "offline" : true,
+      "offlineCause" : {
+        
+      },
+      "offlineCauseReason" : "This node is offline because Jenkins failed to launch the slave agent on it.",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : false
+    },
+    {
+      "actions" : [
+        
+      ],
+      "displayName" : "remote-slave-8",
+      "executors" : [
+        {
+          
+        }
+      ],
+      "icon" : "computer-x.png",
+      "idle" : true,
+      "jnlpAgent" : false,
+      "launchSupported" : true,
+      "loadStatistics" : {
+        
+      },
+      "manualLaunchAllowed" : true,
+      "monitorData" : {
+        "hudson.node_monitors.SwapSpaceMonitor" : null,
+        "hudson.node_monitors.ArchitectureMonitor" : null,
+        "hudson.node_monitors.ResponseTimeMonitor" : {
+          "average" : 5000
+        },
+        "hudson.node_monitors.TemporarySpaceMonitor" : null,
+        "hudson.node_monitors.DiskSpaceMonitor" : null,
+        "hudson.node_monitors.ClockMonitor" : null
+      },
+      "numExecutors" : 1,
+      "offline" : true,
+      "offlineCause" : {
+        
+      },
+      "offlineCauseReason" : "This node is offline because Jenkins failed to launch the slave agent on it.",
+      "oneOffExecutors" : [
+        
+      ],
+      "temporarilyOffline" : true
+    }
+  ],
+  "displayName" : "nodes",
+  "totalExecutors" : 4
+}
