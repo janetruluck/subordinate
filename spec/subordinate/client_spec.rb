@@ -5,9 +5,9 @@ describe Subordinate::Client do
   before do
     Subordinate.reset!
     Subordinate.configure do |c|
-      c.subdomain = ENV["SUBDOMAIN"]
-      c.domain    = ENV["DOMAIN"]
-      c.port      = ENV["PORT"]
+      c.subdomain = "jenkins"
+      c.domain    = "example.com"
+      c.port      = 8080
       c.ssl       = false
     end
   end
@@ -17,6 +17,8 @@ describe Subordinate::Client do
     let(:subdomain) { "awesome" }
     let(:port)      { 2000 }
     let(:ssl)       { false }
+    let(:username)  { "someusername" }
+    let(:token)     { "sometoken" }
 
     it "can be initialized" do
       Subordinate::Client.new.class.should == Subordinate::Client
@@ -26,34 +28,35 @@ describe Subordinate::Client do
       Subordinate.new.class.should == Subordinate::Client
     end
 
-    it "works with basic username and api token", :vcr do
-      Subordinate::Client.new(:username => ENV["USERNAME"], :api_token => ENV["TOKEN"]).root
+    it "works with basic username and api token" do
+      stub_jenkins(:get, "/api/json", "base.json")
+      Subordinate::Client.new(:username => username, :api_token => token).root
       .should_not
       raise_exception
     end
 
     it "generates an endpoint without username and api token" do
-      client = Subordinate::Client.new(:api_key => ENV["API_KEY"] )
-      client.api_endpoint.should_not include("#{ENV["USERNAME"]}:#{ENV["API_KEY"]}")
+      client = Subordinate::Client.new(:api_token => token )
+      client.api_endpoint.should_not include("#{username}:#{token}")
     end
 
     it "can be configured to use a new domain via options" do
-      client = Subordinate::Client.new(:api_key => ENV["API_KEY"], :domain => domain )
+      client = Subordinate::Client.new(:api_token => token, :domain => domain )
       client.domain.should == domain
     end
 
     it "can be configured to use a new subdomain via options" do
-      client = Subordinate::Client.new(:api_key => ENV["API_KEY"], :subdomain => subdomain )
+      client = Subordinate::Client.new(:api_token => token, :subdomain => subdomain )
       client.subdomain.should == subdomain
     end
 
     it "can be configured to use a new port via options" do
-      client = Subordinate::Client.new(:api_key => ENV["API_KEY"], :port => port )
+      client = Subordinate::Client.new(:api_token => token, :port => port )
       client.port.should == port
     end
 
     it "can be configured to use a different ssl option via options" do
-      client = Subordinate::Client.new(:api_key => ENV["API_KEY"], :ssl => ssl )
+      client = Subordinate::Client.new(:api_token => token, :ssl => ssl )
       client.ssl.should == ssl
     end
   end
