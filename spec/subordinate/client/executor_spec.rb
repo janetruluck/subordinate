@@ -1,19 +1,24 @@
+# Build Executor Spec
 require "spec_helper"
 
-# Build Executor Spec
 describe Subordinate::Client do
   before do
     Subordinate.reset!
     Subordinate.configure do |c|
-      c.subdomain = ENV["SUBDOMAIN"]
-      c.domain    = ENV["DOMAIN"]
-      c.port      = ENV["PORT"]
+      c.subdomain = "jenkins"
+      c.domain    = "example.com"
+      c.port      = 8080
       c.ssl       = false
     end
   end
-  let(:subordinate) { Subordinate::Client.new(:username => ENV["USERNAME"], :api_token => ENV["TOKEN"]) }
 
-  describe "#build_executor", :vcr do
+  let(:subordinate) { Subordinate::Client.new(:username => "someusername", :api_token => "sometoken") }
+
+  describe "#build_executor" do
+    before(:each) do
+      stub_jenkins(:get, "/computer/api/json", "computer.json")
+    end
+
     let(:current_response) { subordinate.build_executor }
 
     it "returns the build_executor response" do

@@ -147,27 +147,6 @@ A note from Jenkins: for array-type properties (such as jobs in this example), t
 
 Please see the [docs](https://ci.jenkins-ci.org/api/) for more info on tree parameters
 
-## Testing
-
-This gem uses VCR to record requests to the api so you must test using a valid Jenkins server and credentails to test
-
-Add a sample authentications file to your `spec/fixtures` directory:
-
-```ruby
-#spec/fixtures/authentications.yml
-USERNAME:  jasontruluck           # Your Username
-TOKEN:     12345678901234567890   # Your Jenkins Token (found at jenkins-server/user/your-user-name/configure)
-DOMAIN:    mydomain.com           # The domain of your Jenkins server
-PORT:      8080                   # The port of your Jenkins Server
-SUBDOMAIN: jenkins                # The subdomain of your Jenkins Server
-JOB:       My-Jenkins-Job         # The job that you want to run tests on
-VIEW:      My-awesome-view        # The view that you want to run tests on
-```
-
-A sample is included in the [source](https://github.com/jasontruluck/subordinate/blob/master/spec/fixtures/authentications.yml.sample).
-
-*Note: for tests concerning disabling, deleting, restarting, etc they are mocked explicitly with webmock and will not effect your server*
-
 ## Contributing
 
 1. Fork it

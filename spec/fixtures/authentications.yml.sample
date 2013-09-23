@@ -1,8 +1,0 @@
-#spec/fixtures/authentications.yml
-USERNAME:  jasontruluck           # Your Username
-TOKEN:     12345678901234567890   # Your Jenkins Token (found at jenkins-server/user/your-user-name/configure)
-DOMAIN:    mydomain.com           # The domain of your Jenkins server
-PORT:      8080                   # The port of your Jenkins Server
-SUBDOMAIN: jenkins                # The subdomain of your Jenkins Server
-JOB:       My-Jenkins-Job         # The job that you want to run tests on
-VIEW:      My-awesome-view        # The view that you want to run tests on

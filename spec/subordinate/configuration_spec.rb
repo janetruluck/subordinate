@@ -1,13 +1,14 @@
+# Configuration Spec
 require "spec_helper"
 
-# Configuration Spec
 describe Subordinate::Client do
   before do
     Subordinate.reset!
+
     Subordinate.configure do |c|
-      c.subdomain = ENV["SUBDOMAIN"]
-      c.domain    = ENV["DOMAIN"]
-      c.port      = ENV["PORT"]
+      c.subdomain = "jenkins"
+      c.domain    = "example.com"
+      c.port      = 8080
       c.ssl       = false
     end
   end
@@ -60,7 +61,7 @@ describe Subordinate::Client do
     describe "without a subdomain" do
       it "builds an endpoint without a subdomain" do
         client = Subordinate.new(:subdomain => nil)
-        client.api_endpoint.should == "http://#{ENV["DOMAIN"]}:#{ENV["PORT"]}"
+        client.api_endpoint.should == "http://example.com:8080"
       end
     end
 
@@ -87,7 +88,7 @@ describe Subordinate::Client do
     describe "without a port" do
       it "builds an endpoint without a port" do
         client = Subordinate.new(:port => nil)
-        client.api_endpoint.should == "http://#{ENV["SUBDOMAIN"]}.#{ENV["DOMAIN"]}"
+        client.api_endpoint.should == "http://jenkins.example.com"
       end
     end
 

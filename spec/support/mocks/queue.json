@@ -1,0 +1,30 @@
+{
+  "items" : [
+    {
+      "actions" : [
+        {
+          "causes" : [
+            {
+              "shortDescription" : "Started by timer"
+            }
+          ]
+        }
+      ],
+      "blocked" : false,
+      "buildable" : true,
+      "id" : 18314,
+      "inQueueSince" : 1379913122345,
+      "params" : "",
+      "stuck" : false,
+      "task" : {
+        "name" : "infra_update_center_stable",
+        "url" : "http://ci.jenkins-ci.org/job/infra_update_center_stable/",
+        "color" : "blue"
+      },
+      "url" : "queue/item/18314/",
+      "why" : "Waiting for next available executor on ",
+      "buildableStartMilliseconds" : 1379913122450,
+      "pending" : false
+    }
+  ]
+}

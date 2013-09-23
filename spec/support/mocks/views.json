@@ -1,0 +1,638 @@
+{
+  "views" : [
+    {
+      "jobs" : [
+        {
+          "name" : "config-provider-model",
+          "url" : "http://ci.jenkins-ci.org/job/config-provider-model/"
+        },
+        {
+          "name" : "fix-git-configuration-on-remote-slave-8",
+          "url" : "http://ci.jenkins-ci.org/job/fix-git-configuration-on-remote-slave-8/"
+        },
+        {
+          "name" : "gerrit_master",
+          "url" : "http://ci.jenkins-ci.org/job/gerrit_master/"
+        },
+        {
+          "name" : "infra_backend-confluence-spam-remover",
+          "url" : "http://ci.jenkins-ci.org/job/infra_backend-confluence-spam-remover/"
+        },
+        {
+          "name" : "infra_backend-merge-all-repo",
+          "url" : "http://ci.jenkins-ci.org/job/infra_backend-merge-all-repo/"
+        },
+        {
+          "name" : "infra_backend-plugin-report-card",
+          "url" : "http://ci.jenkins-ci.org/job/infra_backend-plugin-report-card/"
+        },
+        {
+          "name" : "infra_backend-war-size-tracker",
+          "url" : "http://ci.jenkins-ci.org/job/infra_backend-war-size-tracker/"
+        },
+        {
+          "name" : "infra_backend_jenkins_ci_cloudbess_com_filler",
+          "url" : "http://ci.jenkins-ci.org/job/infra_backend_jenkins_ci_cloudbess_com_filler/"
+        },
+        {
+          "name" : "infra_backend_pull_request_greeter",
+          "url" : "http://ci.jenkins-ci.org/job/infra_backend_pull_request_greeter/"
+        },
+        {
+          "name" : "infra_changelog_refresh",
+          "url" : "http://ci.jenkins-ci.org/job/infra_changelog_refresh/"
+        },
+        {
+          "name" : "infra_checkout_stats",
+          "url" : "http://ci.jenkins-ci.org/job/infra_checkout_stats/"
+        },
+        {
+          "name" : "infra_commit_history_generation",
+          "url" : "http://ci.jenkins-ci.org/job/infra_commit_history_generation/"
+        },
+        {
+          "name" : "infra_drupalcron",
+          "url" : "http://ci.jenkins-ci.org/job/infra_drupalcron/"
+        },
+        {
+          "name" : "infra_extension-indexer",
+          "url" : "http://ci.jenkins-ci.org/job/infra_extension-indexer/"
+        },
+        {
+          "name" : "infra_generate_monthly_json",
+          "url" : "http://ci.jenkins-ci.org/job/infra_generate_monthly_json/"
+        },
+        {
+          "name" : "infra_github_repository_list",
+          "url" : "http://ci.jenkins-ci.org/job/infra_github_repository_list/"
+        },
+        {
+          "name" : "infra_javadoc",
+          "url" : "http://ci.jenkins-ci.org/job/infra_javadoc/"
+        },
+        {
+          "name" : "infra_jenkins-ci.org_jekyll",
+          "url" : "http://ci.jenkins-ci.org/job/infra_jenkins-ci.org_jekyll/"
+        },
+        {
+          "name" : "infra_jenkins-ci.org_webcontents",
+          "url" : "http://ci.jenkins-ci.org/job/infra_jenkins-ci.org_webcontents/"
+        },
+        {
+          "name" : "infra_main_svn_to_git",
+          "url" : "http://ci.jenkins-ci.org/job/infra_main_svn_to_git/"
+        },
+        {
+          "name" : "infra_mirroring",
+          "url" : "http://ci.jenkins-ci.org/job/infra_mirroring/"
+        },
+        {
+          "name" : "infra_plugin-compat-tester",
+          "url" : "http://ci.jenkins-ci.org/job/infra_plugin-compat-tester/"
+        },
+        {
+          "name" : "infra_plugin_changes_report",
+          "url" : "http://ci.jenkins-ci.org/job/infra_plugin_changes_report/"
+        },
+        {
+          "name" : "infra_pluginmirror",
+          "url" : "http://ci.jenkins-ci.org/job/infra_pluginmirror/"
+        },
+        {
+          "name" : "infra_plugins_svn_to_git",
+          "url" : "http://ci.jenkins-ci.org/job/infra_plugins_svn_to_git/"
+        },
+        {
+          "name" : "infra_pull_m2repo",
+          "url" : "http://ci.jenkins-ci.org/job/infra_pull_m2repo/"
+        },
+        {
+          "name" : "infra_pull_releases",
+          "url" : "http://ci.jenkins-ci.org/job/infra_pull_releases/"
+        },
+        {
+          "name" : "infra_release.rss",
+          "url" : "http://ci.jenkins-ci.org/job/infra_release.rss/"
+        },
+        {
+          "name" : "infra_repo.jenkins-ci.org_maven_index",
+          "url" : "http://ci.jenkins-ci.org/job/infra_repo.jenkins-ci.org_maven_index/"
+        },
+        {
+          "name" : "infra_statistics",
+          "url" : "http://ci.jenkins-ci.org/job/infra_statistics/"
+        },
+        {
+          "name" : "infra_svnsync",
+          "url" : "http://ci.jenkins-ci.org/job/infra_svnsync/"
+        },
+        {
+          "name" : "infra_update_center",
+          "url" : "http://ci.jenkins-ci.org/job/infra_update_center/"
+        },
+        {
+          "name" : "infra_update_center_experimental",
+          "url" : "http://ci.jenkins-ci.org/job/infra_update_center_experimental/"
+        },
+        {
+          "name" : "infra_update_center_mirror",
+          "url" : "http://ci.jenkins-ci.org/job/infra_update_center_mirror/"
+        },
+        {
+          "name" : "infra_update_center_stable",
+          "url" : "http://ci.jenkins-ci.org/job/infra_update_center_stable/"
+        },
+        {
+          "name" : "infra_update_mave_site",
+          "url" : "http://ci.jenkins-ci.org/job/infra_update_mave_site/"
+        },
+        {
+          "name" : "jenkins_lts_branch",
+          "url" : "http://ci.jenkins-ci.org/job/jenkins_lts_branch/"
+        },
+        {
+          "name" : "jenkins_main_maven-3.1.0",
+          "url" : "http://ci.jenkins-ci.org/job/jenkins_main_maven-3.1.0/"
+        },
+        {
+          "name" : "jenkins_main_trunk",
+          "url" : "http://ci.jenkins-ci.org/job/jenkins_main_trunk/"
+        },
+        {
+          "name" : "jenkins_pom",
+          "url" : "http://ci.jenkins-ci.org/job/jenkins_pom/"
+        },
+        {
+          "name" : "jenkins_rc_branch",
+          "url" : "http://ci.jenkins-ci.org/job/jenkins_rc_branch/"
+        },
+        {
+          "name" : "jenkins_ui-changes_branch",
+          "url" : "http://ci.jenkins-ci.org/job/jenkins_ui-changes_branch/"
+        },
+        {
+          "name" : "kohsuke_github-api",
+          "url" : "http://ci.jenkins-ci.org/job/kohsuke_github-api/"
+        },
+        {
+          "name" : "lib-jenkins-maven-artifact-manager",
+          "url" : "http://ci.jenkins-ci.org/job/lib-jenkins-maven-artifact-manager/"
+        },
+        {
+          "name" : "lib-jenkins-maven-embedder",
+          "url" : "http://ci.jenkins-ci.org/job/lib-jenkins-maven-embedder/"
+        },
+        {
+          "name" : "lib-jira-api",
+          "url" : "http://ci.jenkins-ci.org/job/lib-jira-api/"
+        },
+        {
+          "name" : "libs_core-js",
+          "url" : "http://ci.jenkins-ci.org/job/libs_core-js/"
+        },
+        {
+          "name" : "libs_dom4j",
+          "url" : "http://ci.jenkins-ci.org/job/libs_dom4j/"
+        },
+        {
+          "name" : "libs_htmlunit",
+          "url" : "http://ci.jenkins-ci.org/job/libs_htmlunit/"
+        },
+        {
+          "name" : "libs_jelly",
+          "url" : "http://ci.jenkins-ci.org/job/libs_jelly/"
+        },
+        {
+          "name" : "libs_jexl",
+          "url" : "http://ci.jenkins-ci.org/job/libs_jexl/"
+        },
+        {
+          "name" : "libs_jmdns",
+          "url" : "http://ci.jenkins-ci.org/job/libs_jmdns/"
+        },
+        {
+          "name" : "libs_json-lib",
+          "url" : "http://ci.jenkins-ci.org/job/libs_json-lib/"
+        },
+        {
+          "name" : "libs_maven-jetty-plugin",
+          "url" : "http://ci.jenkins-ci.org/job/libs_maven-jetty-plugin/"
+        },
+        {
+          "name" : "libs_netx",
+          "url" : "http://ci.jenkins-ci.org/job/libs_netx/"
+        },
+        {
+          "name" : "libs_svnkit",
+          "url" : "http://ci.jenkins-ci.org/job/libs_svnkit/"
+        },
+        {
+          "name" : "libs_trilead-ssh2",
+          "url" : "http://ci.jenkins-ci.org/job/libs_trilead-ssh2/"
+        },
+        {
+          "name" : "libs_winstone",
+          "url" : "http://ci.jenkins-ci.org/job/libs_winstone/"
+        },
+        {
+          "name" : "libs_xstream",
+          "url" : "http://ci.jenkins-ci.org/job/libs_xstream/"
+        },
+        {
+          "name" : "maven-interceptors",
+          "url" : "http://ci.jenkins-ci.org/job/maven-interceptors/"
+        },
+        {
+          "name" : "model-ant-project",
+          "url" : "http://ci.jenkins-ci.org/job/model-ant-project/"
+        },
+        {
+          "name" : "peripheral apps deactivation prevention",
+          "url" : "http://ci.jenkins-ci.org/job/peripheral%20apps%20deactivation%20prevention/"
+        },
+        {
+          "name" : "plugin-compat-tester",
+          "url" : "http://ci.jenkins-ci.org/job/plugin-compat-tester/"
+        },
+        {
+          "name" : "remoting",
+          "url" : "http://ci.jenkins-ci.org/job/remoting/"
+        },
+        {
+          "name" : "test-matrix",
+          "url" : "http://ci.jenkins-ci.org/job/test-matrix/"
+        },
+        {
+          "name" : "tools_maven-hpi-plugin",
+          "url" : "http://ci.jenkins-ci.org/job/tools_maven-hpi-plugin/"
+        },
+        {
+          "name" : "tools_maven-hpi-plugin-maven-2.x",
+          "url" : "http://ci.jenkins-ci.org/job/tools_maven-hpi-plugin-maven-2.x/"
+        }
+      ],
+      "name" : "All",
+      "url" : "http://ci.jenkins-ci.org/view/All/"
+    },
+    {
+      "jobs" : [
+        {
+          "name" : "gerrit_master",
+          "url" : "http://ci.jenkins-ci.org/job/gerrit_master/"
+        },
+        {
+          "name" : "infra_main_svn_to_git",
+          "url" : "http://ci.jenkins-ci.org/job/infra_main_svn_to_git/"
+        },
+        {
+          "name" : "infra_plugins_svn_to_git",
+          "url" : "http://ci.jenkins-ci.org/job/infra_plugins_svn_to_git/"
+        },
+        {
+          "name" : "infra_pull_releases",
+          "url" : "http://ci.jenkins-ci.org/job/infra_pull_releases/"
+        },
+        {
+          "name" : "infra_svnsync",
+          "url" : "http://ci.jenkins-ci.org/job/infra_svnsync/"
+        },
+        {
+          "name" : "plugin-compat-tester",
+          "url" : "http://ci.jenkins-ci.org/job/plugin-compat-tester/"
+        }
+      ],
+      "name" : "All Disabled",
+      "url" : "http://ci.jenkins-ci.org/view/All%20Disabled/"
+    },
+    {
+      "jobs" : [
+        {
+          "name" : "gerrit_master",
+          "url" : "http://ci.jenkins-ci.org/job/gerrit_master/"
+        },
+        {
+          "name" : "infra_backend-merge-all-repo",
+          "url" : "http://ci.jenkins-ci.org/job/infra_backend-merge-all-repo/"
+        },
+        {
+          "name" : "infra_backend_jenkins_ci_cloudbess_com_filler",
+          "url" : "http://ci.jenkins-ci.org/job/infra_backend_jenkins_ci_cloudbess_com_filler/"
+        },
+        {
+          "name" : "infra_backend_pull_request_greeter",
+          "url" : "http://ci.jenkins-ci.org/job/infra_backend_pull_request_greeter/"
+        },
+        {
+          "name" : "infra_commit_history_generation",
+          "url" : "http://ci.jenkins-ci.org/job/infra_commit_history_generation/"
+        },
+        {
+          "name" : "infra_plugins_svn_to_git",
+          "url" : "http://ci.jenkins-ci.org/job/infra_plugins_svn_to_git/"
+        },
+        {
+          "name" : "infra_svnsync",
+          "url" : "http://ci.jenkins-ci.org/job/infra_svnsync/"
+        },
+        {
+          "name" : "jenkins_ui-changes_branch",
+          "url" : "http://ci.jenkins-ci.org/job/jenkins_ui-changes_branch/"
+        },
+        {
+          "name" : "libs_svnkit",
+          "url" : "http://ci.jenkins-ci.org/job/libs_svnkit/"
+        }
+      ],
+      "name" : "All Failed",
+      "url" : "http://ci.jenkins-ci.org/"
+    },
+    {
+      "jobs" : [
+        {
+          "name" : "infra_backend-confluence-spam-remover",
+          "url" : "http://ci.jenkins-ci.org/job/infra_backend-confluence-spam-remover/"
+        },
+        {
+          "name" : "infra_backend-merge-all-repo",
+          "url" : "http://ci.jenkins-ci.org/job/infra_backend-merge-all-repo/"
+        },
+        {
+          "name" : "infra_backend-plugin-report-card",
+          "url" : "http://ci.jenkins-ci.org/job/infra_backend-plugin-report-card/"
+        },
+        {
+          "name" : "infra_backend-war-size-tracker",
+          "url" : "http://ci.jenkins-ci.org/job/infra_backend-war-size-tracker/"
+        },
+        {
+          "name" : "infra_backend_jenkins_ci_cloudbess_com_filler",
+          "url" : "http://ci.jenkins-ci.org/job/infra_backend_jenkins_ci_cloudbess_com_filler/"
+        },
+        {
+          "name" : "infra_backend_pull_request_greeter",
+          "url" : "http://ci.jenkins-ci.org/job/infra_backend_pull_request_greeter/"
+        },
+        {
+          "name" : "infra_changelog_refresh",
+          "url" : "http://ci.jenkins-ci.org/job/infra_changelog_refresh/"
+        },
+        {
+          "name" : "infra_checkout_stats",
+          "url" : "http://ci.jenkins-ci.org/job/infra_checkout_stats/"
+        },
+        {
+          "name" : "infra_commit_history_generation",
+          "url" : "http://ci.jenkins-ci.org/job/infra_commit_history_generation/"
+        },
+        {
+          "name" : "infra_drupalcron",
+          "url" : "http://ci.jenkins-ci.org/job/infra_drupalcron/"
+        },
+        {
+          "name" : "infra_extension-indexer",
+          "url" : "http://ci.jenkins-ci.org/job/infra_extension-indexer/"
+        },
+        {
+          "name" : "infra_generate_monthly_json",
+          "url" : "http://ci.jenkins-ci.org/job/infra_generate_monthly_json/"
+        },
+        {
+          "name" : "infra_github_repository_list",
+          "url" : "http://ci.jenkins-ci.org/job/infra_github_repository_list/"
+        },
+        {
+          "name" : "infra_javadoc",
+          "url" : "http://ci.jenkins-ci.org/job/infra_javadoc/"
+        },
+        {
+          "name" : "infra_jenkins-ci.org_jekyll",
+          "url" : "http://ci.jenkins-ci.org/job/infra_jenkins-ci.org_jekyll/"
+        },
+        {
+          "name" : "infra_jenkins-ci.org_webcontents",
+          "url" : "http://ci.jenkins-ci.org/job/infra_jenkins-ci.org_webcontents/"
+        },
+        {
+          "name" : "infra_main_svn_to_git",
+          "url" : "http://ci.jenkins-ci.org/job/infra_main_svn_to_git/"
+        },
+        {
+          "name" : "infra_mirroring",
+          "url" : "http://ci.jenkins-ci.org/job/infra_mirroring/"
+        },
+        {
+          "name" : "infra_plugin-compat-tester",
+          "url" : "http://ci.jenkins-ci.org/job/infra_plugin-compat-tester/"
+        },
+        {
+          "name" : "infra_plugin_changes_report",
+          "url" : "http://ci.jenkins-ci.org/job/infra_plugin_changes_report/"
+        },
+        {
+          "name" : "infra_pluginmirror",
+          "url" : "http://ci.jenkins-ci.org/job/infra_pluginmirror/"
+        },
+        {
+          "name" : "infra_plugins_svn_to_git",
+          "url" : "http://ci.jenkins-ci.org/job/infra_plugins_svn_to_git/"
+        },
+        {
+          "name" : "infra_pull_m2repo",
+          "url" : "http://ci.jenkins-ci.org/job/infra_pull_m2repo/"
+        },
+        {
+          "name" : "infra_pull_releases",
+          "url" : "http://ci.jenkins-ci.org/job/infra_pull_releases/"
+        },
+        {
+          "name" : "infra_release.rss",
+          "url" : "http://ci.jenkins-ci.org/job/infra_release.rss/"
+        },
+        {
+          "name" : "infra_repo.jenkins-ci.org_maven_index",
+          "url" : "http://ci.jenkins-ci.org/job/infra_repo.jenkins-ci.org_maven_index/"
+        },
+        {
+          "name" : "infra_statistics",
+          "url" : "http://ci.jenkins-ci.org/job/infra_statistics/"
+        },
+        {
+          "name" : "infra_svnsync",
+          "url" : "http://ci.jenkins-ci.org/job/infra_svnsync/"
+        },
+        {
+          "name" : "infra_update_center",
+          "url" : "http://ci.jenkins-ci.org/job/infra_update_center/"
+        },
+        {
+          "name" : "infra_update_center_experimental",
+          "url" : "http://ci.jenkins-ci.org/job/infra_update_center_experimental/"
+        },
+        {
+          "name" : "infra_update_center_mirror",
+          "url" : "http://ci.jenkins-ci.org/job/infra_update_center_mirror/"
+        },
+        {
+          "name" : "infra_update_center_stable",
+          "url" : "http://ci.jenkins-ci.org/job/infra_update_center_stable/"
+        },
+        {
+          "name" : "infra_update_mave_site",
+          "url" : "http://ci.jenkins-ci.org/job/infra_update_mave_site/"
+        },
+        {
+          "name" : "peripheral apps deactivation prevention",
+          "url" : "http://ci.jenkins-ci.org/job/peripheral%20apps%20deactivation%20prevention/"
+        }
+      ],
+      "name" : "Infrastructure",
+      "url" : "http://ci.jenkins-ci.org/view/Infrastructure/"
+    },
+    {
+      "jobs" : [
+        {
+          "name" : "jenkins_lts_branch",
+          "url" : "http://ci.jenkins-ci.org/job/jenkins_lts_branch/"
+        },
+        {
+          "name" : "jenkins_main_maven-3.1.0",
+          "url" : "http://ci.jenkins-ci.org/job/jenkins_main_maven-3.1.0/"
+        },
+        {
+          "name" : "jenkins_main_trunk",
+          "url" : "http://ci.jenkins-ci.org/job/jenkins_main_trunk/"
+        },
+        {
+          "name" : "jenkins_pom",
+          "url" : "http://ci.jenkins-ci.org/job/jenkins_pom/"
+        },
+        {
+          "name" : "jenkins_rc_branch",
+          "url" : "http://ci.jenkins-ci.org/job/jenkins_rc_branch/"
+        },
+        {
+          "name" : "jenkins_ui-changes_branch",
+          "url" : "http://ci.jenkins-ci.org/job/jenkins_ui-changes_branch/"
+        },
+        {
+          "name" : "remoting",
+          "url" : "http://ci.jenkins-ci.org/job/remoting/"
+        }
+      ],
+      "name" : "Jenkins core",
+      "url" : "http://ci.jenkins-ci.org/view/Jenkins%20core/"
+    },
+    {
+      "jobs" : [
+        {
+          "name" : "config-provider-model",
+          "url" : "http://ci.jenkins-ci.org/job/config-provider-model/"
+        },
+        {
+          "name" : "lib-jenkins-maven-artifact-manager",
+          "url" : "http://ci.jenkins-ci.org/job/lib-jenkins-maven-artifact-manager/"
+        },
+        {
+          "name" : "lib-jenkins-maven-embedder",
+          "url" : "http://ci.jenkins-ci.org/job/lib-jenkins-maven-embedder/"
+        },
+        {
+          "name" : "lib-jira-api",
+          "url" : "http://ci.jenkins-ci.org/job/lib-jira-api/"
+        },
+        {
+          "name" : "libs_core-js",
+          "url" : "http://ci.jenkins-ci.org/job/libs_core-js/"
+        },
+        {
+          "name" : "libs_dom4j",
+          "url" : "http://ci.jenkins-ci.org/job/libs_dom4j/"
+        },
+        {
+          "name" : "libs_htmlunit",
+          "url" : "http://ci.jenkins-ci.org/job/libs_htmlunit/"
+        },
+        {
+          "name" : "libs_jelly",
+          "url" : "http://ci.jenkins-ci.org/job/libs_jelly/"
+        },
+        {
+          "name" : "libs_jexl",
+          "url" : "http://ci.jenkins-ci.org/job/libs_jexl/"
+        },
+        {
+          "name" : "libs_jmdns",
+          "url" : "http://ci.jenkins-ci.org/job/libs_jmdns/"
+        },
+        {
+          "name" : "libs_json-lib",
+          "url" : "http://ci.jenkins-ci.org/job/libs_json-lib/"
+        },
+        {
+          "name" : "libs_maven-jetty-plugin",
+          "url" : "http://ci.jenkins-ci.org/job/libs_maven-jetty-plugin/"
+        },
+        {
+          "name" : "libs_netx",
+          "url" : "http://ci.jenkins-ci.org/job/libs_netx/"
+        },
+        {
+          "name" : "libs_svnkit",
+          "url" : "http://ci.jenkins-ci.org/job/libs_svnkit/"
+        },
+        {
+          "name" : "libs_trilead-ssh2",
+          "url" : "http://ci.jenkins-ci.org/job/libs_trilead-ssh2/"
+        },
+        {
+          "name" : "libs_winstone",
+          "url" : "http://ci.jenkins-ci.org/job/libs_winstone/"
+        },
+        {
+          "name" : "libs_xstream",
+          "url" : "http://ci.jenkins-ci.org/job/libs_xstream/"
+        },
+        {
+          "name" : "maven-interceptors",
+          "url" : "http://ci.jenkins-ci.org/job/maven-interceptors/"
+        },
+        {
+          "name" : "tools_maven-hpi-plugin",
+          "url" : "http://ci.jenkins-ci.org/job/tools_maven-hpi-plugin/"
+        },
+        {
+          "name" : "tools_maven-hpi-plugin-maven-2.x",
+          "url" : "http://ci.jenkins-ci.org/job/tools_maven-hpi-plugin-maven-2.x/"
+        }
+      ],
+      "name" : "Libraries",
+      "url" : "http://ci.jenkins-ci.org/view/Libraries/"
+    },
+    {
+      "jobs" : [
+        {
+          "name" : "gerrit_master",
+          "url" : "http://ci.jenkins-ci.org/job/gerrit_master/"
+        },
+        {
+          "name" : "lib-jenkins-maven-artifact-manager",
+          "url" : "http://ci.jenkins-ci.org/job/lib-jenkins-maven-artifact-manager/"
+        },
+        {
+          "name" : "lib-jenkins-maven-embedder",
+          "url" : "http://ci.jenkins-ci.org/job/lib-jenkins-maven-embedder/"
+        },
+        {
+          "name" : "lib-jira-api",
+          "url" : "http://ci.jenkins-ci.org/job/lib-jira-api/"
+        },
+        {
+          "name" : "model-ant-project",
+          "url" : "http://ci.jenkins-ci.org/job/model-ant-project/"
+        }
+      ],
+      "name" : "Other Projects",
+      "url" : "http://ci.jenkins-ci.org/view/Other%20Projects/"
+    }
+  ]
+}
