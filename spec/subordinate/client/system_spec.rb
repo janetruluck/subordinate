@@ -1,19 +1,22 @@
+# System Spec
 require "spec_helper"
 
-# Client Spec
 describe Subordinate::Client do
   before do
     Subordinate.reset!
     Subordinate.configure do |c|
-      c.subdomain = ENV["SUBDOMAIN"]
-      c.domain    = ENV["DOMAIN"]
-      c.port      = ENV["PORT"]
+      c.subdomain = "jenkins"
+      c.domain    = "example.com"
+      c.port      = 8080
       c.ssl       = false
     end
   end
-  let(:subordinate) { Subordinate::Client.new(:username => ENV["USERNAME"], :api_token => ENV["TOKEN"]) }
 
-  describe "#root", :vcr do
+  let(:subordinate) { Subordinate::Client.new(:username => "someusername", :api_token => "sometoken") }
+
+  describe "#root" do
+    before(:each) { stub_jenkins(:get, "/api/json", "base.json") }
+
     let(:current_response) { subordinate.root }
 
     it "returns the root response", :vcr do

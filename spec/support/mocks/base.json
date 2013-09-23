@@ -1,0 +1,49 @@
+{
+  "assignedLabels" : [
+    {
+      
+    }
+  ],
+  "mode" : "NORMAL",
+  "nodeDescription" : "the master Jenkins node",
+  "nodeName" : "",
+  "numExecutors" : 2,
+  "description" : null,
+  "jobs" : [
+    {
+      "name" : "Mission-Control-Production",
+      "url" : "http://jenkins.missioncontrol.io:8080/job/Mission-Control-Production/",
+      "color" : "red"
+    },
+    {
+      "name" : "Mission-Control-Staging",
+      "url" : "http://jenkins.missioncontrol.io:8080/job/Mission-Control-Staging/",
+      "color" : "blue"
+    },
+    {
+      "name" : "Mission-Control-Staging-Testing",
+      "url" : "http://jenkins.missioncontrol.io:8080/job/Mission-Control-Staging-Testing/",
+      "color" : "red"
+    }
+  ],
+  "overallLoad" : {
+    
+  },
+  "primaryView" : {
+    "name" : "All",
+    "url" : "http://jenkins.missioncontrol.io:8080/"
+  },
+  "quietingDown" : false,
+  "slaveAgentPort" : 0,
+  "unlabeledLoad" : {
+    
+  },
+  "useCrumbs" : false,
+  "useSecurity" : true,
+  "views" : [
+    {
+      "name" : "All",
+      "url" : "http://jenkins.missioncontrol.io:8080/"
+    }
+  ]
+}
