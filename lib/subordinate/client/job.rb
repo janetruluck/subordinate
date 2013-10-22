@@ -101,6 +101,39 @@ module Subordinate
       def delete_job(job, options = {})
         post("job/#{job}/delete", options).status
       end
+
+      # Retrieves the Config XML file for the specified job
+      #
+      # @see https://ci.jenkins-ci.org/job/jenkins_rc_branch/api/
+      #
+      # @param [String] job the job that you want to delete
+      #
+      # @return [XML] configuration file
+      #
+      # @example  retrieve the job configuration file
+      #   Subordinate::Client.job_config("My-Job-I-Want-Info-On")
+      #
+      # @author Jason Truluck
+      def job_config(job, options = {})
+        get("job/#{job}/config.xml")
+      end
+      
+      # Posts the new Config XML file for the specified job
+      #
+      # @see https://ci.jenkins-ci.org/job/jenkins_rc_branch/api/
+      #
+      # @param [String] job the job that you want to update the congfig on
+      # @param [String] config the config that you want to upload
+      #
+      # @return [XML] configuration file
+      #
+      # @example  update the job configuration file
+      #   Subordinate::Client.update_job_config("My-Job-I-Want-Info-On")
+      #
+      # @author Jason Truluck
+      def update_job_config(job, config, options = {})
+        connection.post("#{api_endpoint}/job/#{job}/config.xml", config, :content_type => "application/xml")
+      end
     end
   end
 end

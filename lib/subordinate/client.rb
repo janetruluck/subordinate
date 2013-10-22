@@ -34,7 +34,6 @@ module Subordinate
     # @author Jason Truluck
     def build_endpoint
       endpoint = ssl ? "https://" : "http://"
-      endpoint << "#{self.username}:#{self.api_token}@" if self.authenticated?
       endpoint << "#{self.subdomain}."                  if self.subdomain
       endpoint << "#{self.domain}"                      if self.domain
       endpoint << ":#{self.port}"                       if self.port

@@ -14,18 +14,20 @@ module Subordinate
 
     private
     def request(method, path, options = {})
-      url = options.delete(:endpoint) || api_endpoint
+      url               = options.delete(:endpoint) || api_endpoint
+      with_query_params = options.delete(:with_query_params) || false
+      headers           = options.delete(:headers)
 
       connection_options = {
         :url => url
       }
 
       response = connection(connection_options).send(method) do |request|
+        request.headers = headers if headers``
         case method
         when :get
           request.url(path, options)
         when :post
-          with_query_params = options.delete(:with_query_params) || false
           if with_query_params
             request.url(path, options)
           else

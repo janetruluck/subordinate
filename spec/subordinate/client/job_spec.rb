@@ -173,4 +173,24 @@ describe Subordinate::Client do
       subordinate.delete_job("Some-Job").should == 302
     end
   end
+
+  describe ".job_config" do
+    let(:file) { File.read(File.expand_path("../../../support/mocks/job_config.xml", __FILE__)) }
+
+    it "retrieves a config file for the job" do
+      stub_jenkins(:get, "/job/Some-Job/config.xml", 200, "application/xml", "job_config.xml")
+
+      subordinate.job_config("Some-Job").should eq(file)
+    end
+  end
+
+  describe ".job_config" do
+    let(:new_file) { File.read(File.expand_path("../../../support/mocks/new_config.xml", __FILE__)) }
+
+    it "retrieves a config file for the job" do
+      stub_jenkins(:post, "/job/Some-Job/config.xml", 200, "application/xml", "job_config.xml")
+
+      subordinate.update_job_config("Some-Job", new_file).should eq(new_file).body
+    end
+  end
 end
