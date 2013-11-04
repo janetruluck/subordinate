@@ -2,17 +2,6 @@
 require "spec_helper"
 
 describe Subordinate::Client do
-  before do
-    Subordinate.reset!
-
-    Subordinate.configure do |c|
-      c.subdomain = "jenkins"
-      c.domain    = "example.com"
-      c.port      = 8080
-      c.ssl       = false
-    end
-  end
-
   describe "configuration" do
     let(:domain)    { "woofound.com" }
     let(:subdomain) { "awesome" }
@@ -27,14 +16,8 @@ describe Subordinate::Client do
         end
       end
 
-      let(:client) { Subordinate.new }
-
-      it "sets the domain for the client" do
-        client.domain.should == domain
-      end
-
       it "builds an endpoint with the domain" do
-        client.api_endpoint.should include(domain)
+        Subordinate.api_endpoint.should eq("https://#{domain}")
       end
     end
 
@@ -43,25 +26,13 @@ describe Subordinate::Client do
       before do
         Subordinate.reset!
         Subordinate.configure do |c|
+          c.domain = domain
           c.subdomain = subdomain
         end
       end
 
-      let(:client) { Subordinate.new }
-
-      it "sets the subdomain for the client" do
-        client.subdomain.should == subdomain
-      end
-
       it "builds an endpoint with the subdomain" do
-        client.api_endpoint.should include(subdomain)
-      end
-    end
-
-    describe "without a subdomain" do
-      it "builds an endpoint without a subdomain" do
-        client = Subordinate.new(:subdomain => nil)
-        client.api_endpoint.should == "http://example.com:8080"
+        Subordinate.api_endpoint.should eq("https://#{subdomain}.#{domain}")
       end
     end
 
@@ -70,25 +41,13 @@ describe Subordinate::Client do
       before do
         Subordinate.reset!
         Subordinate.configure do |c|
+          c.domain = domain
           c.port = port
         end
       end
 
-      let(:client) { Subordinate.new }
-
-      it "sets the port for the client" do
-        client.port.should == port
-      end
-
       it "builds an endpoint with the port" do
-        client.api_endpoint.should include("#{port}")
-      end
-    end
-
-    describe "without a port" do
-      it "builds an endpoint without a port" do
-        client = Subordinate.new(:port => nil)
-        client.api_endpoint.should == "http://jenkins.example.com"
+        Subordinate.api_endpoint.should eq("https://#{domain}:#{port}")
       end
     end
 
@@ -97,23 +56,18 @@ describe Subordinate::Client do
       before do
         Subordinate.reset!
         Subordinate.configure do |c|
+          c.domain = domain
           c.ssl = ssl
         end
       end
 
-      let(:client) { Subordinate.new }
-
-      it "sets the ssl for the client" do
-        client.ssl.should == ssl
-      end
-
       it "builds an endpoint with the ssl set to false" do
-        client.api_endpoint.should include("http://")
+        Subordinate.api_endpoint.should eq("http://#{domain}")
       end
 
       it "builds an endpoint with the ssl set to true" do
-        client = Subordinate.new(:ssl => true)
-        client.api_endpoint.should include("https://")
+        Subordinate.ssl = true
+        Subordinate.api_endpoint.should eq("https://#{domain}")
       end
     end
   end
