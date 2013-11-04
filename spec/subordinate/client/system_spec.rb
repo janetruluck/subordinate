@@ -88,19 +88,19 @@ describe Subordinate::Client do
 
   describe "#quiet_down" do
     it "will shut down the server" do
-      stub_request(:post, "#{subordinate.api_endpoint}/quietDown").
-      to_return(:status => 302, :body => "", :headers => {})
+      stub_jenkins(:post, "/quietDown", 302, "empty.json")
 
-      subordinate.quiet_down.should == 302
+      subordinate.quiet_down
+      expect(subordinate.last_response.status).to eq(302)
     end
   end
 
   describe "#cancel_quiet_down" do
     it "will cancel a shut down request to the server" do
-      stub_request(:post, "#{subordinate.api_endpoint}/cancelQuietDown").
-      to_return(:status => 302, :body => "", :headers => {})
+      stub_jenkins(:post, "/cancelQuietDown", 302, "empty.json")
 
-      subordinate.cancel_quiet_down.should == 302
+      subordinate.cancel_quiet_down
+      expect(subordinate.last_response.status).to eq(302)
     end
   end
 
@@ -108,19 +108,19 @@ describe Subordinate::Client do
   # commented out since random order is used.
   describe "#restart" do
     it "will force restart the jenkins server" do
-      stub_request(:post, "#{subordinate.api_endpoint}/restart").
-      to_return(:status => 302, :body => "", :headers => {})
+      stub_jenkins(:post, "/restart", 302, "empty.json")
 
-      subordinate.restart.should == 302
+      subordinate.restart
+      expect(subordinate.last_response.status).to eq(302)
     end
   end
 
   describe "#safe_restart" do
     it "will restart the jenkins server" do
-      stub_request(:post, "#{subordinate.api_endpoint}/safeRestart").
-      to_return(:status => 302, :body => "", :headers => {})
+      stub_jenkins(:post, "/safeRestart", 302, "empty.json")
 
-      subordinate.safe_restart.should == 302
+      subordinate.safe_restart
+      expect(subordinate.last_response.status).to eq(302)
     end
   end
 end

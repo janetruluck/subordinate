@@ -15,8 +15,6 @@ module Subordinate
       #
       # @example Get the root api response
       #   Subordinate::Client.root
-      #
-      # @author Jason Truluck
       def root(options = {})
         get('/api/json', options)
       end
@@ -29,10 +27,8 @@ module Subordinate
       #
       # @example Send a quiet down request to the Jenkins server
       #   Subordinate::Client.quiet_down
-      #
-      # @author Jason Truluck
       def quiet_down(options = {})
-        post('/quietDown', options).status
+        post('/quietDown', options)
       end
 
       # Cancel a shut down request to the Jenkins Server
@@ -43,10 +39,8 @@ module Subordinate
       #
       # @example Send a quiet down request to the Jenkins server
       #   Subordinate::Client.cancel_quiet_down
-      #
-      # @author Jason Truluck
       def cancel_quiet_down(options = {})
-        post('/cancelQuietDown', options).status
+        post('/cancelQuietDown', options)
       end
 
       # Restarts the jenkins server, will not wait for jobs to finish
@@ -57,10 +51,8 @@ module Subordinate
       #
       # @example Sends a force restart request to the Jenkins server
       #   Subordinate::Client.restart(true)
-      #
-      # @author Jason Truluck
       def restart(options = {})
-        post("restart", options).status
+        post("restart", options)
       end
 
       # Safely Restarts the jenkins server, will wait for jobs to finish
@@ -71,10 +63,8 @@ module Subordinate
       #
       # @example Sends a restart request to the Jenkins server (defaults to no force)
       #   Subordinate::Client.restart
-      #
-      # @author Jason Truluck
       def safe_restart(options = {})
-        post("safeRestart", options).status
+        post("safeRestart", options)
       end
     end
   end

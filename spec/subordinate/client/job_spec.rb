@@ -138,7 +138,8 @@ describe Subordinate::Client do
     it "builds the job specified" do
       stub_jenkins(:post, "/job/Some-Job/build", 302, "empty.json")
 
-      subordinate.build_job("Some-Job").should  == 302
+      subordinate.build_job("Some-Job")
+      expect(subordinate.last_response.status).to eq(302)
     end
   end
 
@@ -146,7 +147,8 @@ describe Subordinate::Client do
     it "builds the job specified with the parameters specified" do
       stub_jenkins(:post, "/job/Some-Job/buildWithParameters", 302, "empty.json")
 
-      subordinate.build_job_with_params("Some-Job").should  == 302
+      subordinate.build_job_with_params("Some-Job")
+      expect(subordinate.last_response.status).to eq(302)
     end
   end
 
@@ -154,7 +156,8 @@ describe Subordinate::Client do
     it "disables the specified job" do
       stub_jenkins(:post, "/job/Some-Job/disable", 302, "empty.json")
 
-      subordinate.disable_job("Some-Job").should == 302
+      subordinate.disable_job("Some-Job")
+      expect(subordinate.last_response.status).to eq(302)
     end
   end
 
@@ -162,7 +165,8 @@ describe Subordinate::Client do
     it "enables the specified job" do
       stub_jenkins(:post, "/job/Some-Job/enable", 302, "empty.json")
 
-      subordinate.enable_job("Some-Job").should == 302
+      subordinate.enable_job("Some-Job")
+      expect(subordinate.last_response.status).to eq(302)
     end
   end
 
@@ -170,7 +174,8 @@ describe Subordinate::Client do
     it "deletes the specified job" do
       stub_jenkins(:post, "/job/Some-Job/delete", 302, "empty.json")
 
-      subordinate.delete_job("Some-Job").should == 302
+      subordinate.delete_job("Some-Job")
+      expect(subordinate.last_response.status).to eq(302)
     end
   end
 end
