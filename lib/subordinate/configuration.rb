@@ -22,8 +22,9 @@ module Subordinate
     end
 
     def reset!
-      VALID_OPTIONS_KEYS.each {|key| class_eval(%Q{key = nil}) }
+      VALID_OPTIONS_KEYS.each {|key| instance_variable_set("@#{key}".to_sym, nil) }
       self.ssl = true
+      self
     end
   end
 end
