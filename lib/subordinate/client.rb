@@ -2,15 +2,7 @@
 require "subordinate/authentication"
 require "subordinate/connection"
 require "subordinate/request"
-
-require "subordinate/client/job"
-require "subordinate/client/system"
-require "subordinate/client/build"
-require "subordinate/client/queue"
-require "subordinate/client/load"
-require "subordinate/client/people"
-require "subordinate/client/view"
-require "subordinate/client/executor"
+Dir[File.expand_path("../client/*.rb", __FILE__)].each {|f| require f }
 
 module Subordinate
   class Client
@@ -22,23 +14,13 @@ module Subordinate
       Configuration::VALID_OPTIONS_KEYS.each do |key|
         send("#{key}=", options[key])
       end
-
-      username_and_token(options[:username], options[:api_token])
-      build_endpoint
     end
 
     # Builds the api endpoint to reach the Jenkins Server
     #
-    # @return [String] Endpoint
-    #
-    # @author Jason Truluck
-    def build_endpoint
-      endpoint = ssl ? "https://" : "http://"
-      endpoint << "#{self.username}:#{self.api_token}@" if self.authenticated?
-      endpoint << "#{self.subdomain}."                  if self.subdomain
-      endpoint << "#{self.domain}"                      if self.domain
-      endpoint << ":#{self.port}"                       if self.port
-      self.api_endpoint = endpoint
+    # @return [String] Endpoint - the api endpoint to the server
+    def api_endpoint
+      build_endpoint
     end
 
     include Subordinate::Authentication
@@ -53,5 +35,14 @@ module Subordinate
     include Subordinate::Client::People
     include Subordinate::Client::View
     include Subordinate::Client::Executor
+
+    private
+    def build_endpoint
+      endpoint = ssl ? "https://" : "http://"
+      endpoint << "#{self.subdomain}."              if self.subdomain
+      endpoint << "#{self.domain}"                  if self.domain
+      endpoint << ":#{self.port}"                   if self.port
+      endpoint
+    end
   end
 end
