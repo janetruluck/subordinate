@@ -34,7 +34,7 @@ module Subordinate
       #
       # @author Jason Truluck
       def build_job(job, options = {})
-        post("job/#{job}/build", options).status
+        post("job/#{job}/build", options)
       end
 
       # Builds the job specified on the Jenkins server with specified parameters
@@ -51,7 +51,7 @@ module Subordinate
       #
       # @author Jason Truluck
       def build_job_with_params(job, options = {})
-        post("job/#{job}/buildWithParameters", options).status
+        post("job/#{job}/buildWithParameters", options)
       end
 
       # Disables the specified job on the Jenkins Server
@@ -67,7 +67,7 @@ module Subordinate
       #
       # @author Jason Truluck
       def disable_job(job, options = {})
-        post("job/#{job}/disable", options).status
+        post("job/#{job}/disable", options)
       end
 
       # Enables the specified job on the Jenkins Server
@@ -83,7 +83,7 @@ module Subordinate
       #
       # @author Jason Truluck
       def enable_job(job, options = {})
-        post("job/#{job}/enable", options).status
+        post("job/#{job}/enable", options)
       end
 
       # Deletes the specified job on the Jenkins Server
@@ -99,7 +99,7 @@ module Subordinate
       #
       # @author Jason Truluck
       def delete_job(job, options = {})
-        post("job/#{job}/delete", options).status
+        post("job/#{job}/delete", options)
       end
     end
   end

@@ -16,7 +16,7 @@ describe Subordinate::Client do
 
   describe "#view" do
     before(:each) { stub_jenkins(:get, "/view/someview/api/json", "view.json") }
-    
+
     let(:current_response) { subordinate.view("someview") }
 
     it "returns the view response" do
@@ -80,21 +80,8 @@ describe Subordinate::Client do
     it "responds with a success" do
       stub_jenkins(:post, "/view/someview/addJobToView?name=somejob", 200, "empty.json")
 
-      subordinate.add_job_to_view("someview", "somejob").status.should == 200
-    end
-
-    context "error" do
-      it "returns 404 when not found" do
-        stub_jenkins(:post, "/view/someview/addJobToView?name=somejob", 404, "empty.json")
-
-        subordinate.add_job_to_view("someview", "somejob").status.should == 404
-      end
-      
-      it "returns 500 when server error" do
-        stub_jenkins(:post, "/view/someview/addJobToView?name=somejob", 500, "empty.json")
-
-        subordinate.add_job_to_view("someview", "somejob").status.should == 500
-      end
+      subordinate.add_job_to_view("someview", "somejob")
+      expect(subordinate.last_response.status).to eq(200)
     end
   end
 
@@ -102,21 +89,8 @@ describe Subordinate::Client do
     it "responds with a success" do
       stub_jenkins(:post, "/view/someview/removeJobFromView?name=somejob", 200, "empty.json")
 
-      subordinate.remove_job_from_view("someview", "somejob").status.should == 200
-    end
-    
-    context "error" do
-      it "returns 404 when not found" do
-        stub_jenkins(:post, "/view/someview/removeJobFromView?name=somejob", 404, "empty.json")
-
-        subordinate.remove_job_from_view("someview", "somejob").status.should == 404
-      end
-      
-      it "returns 500 when server error" do
-        stub_jenkins(:post, "/view/someview/removeJobFromView?name=somejob", 500, "empty.json")
-
-        subordinate.remove_job_from_view("someview", "somejob").status.should == 500
-      end
+      subordinate.remove_job_from_view("someview", "somejob")
+      expect(subordinate.last_response.status).to eq(200)
     end
   end
 end

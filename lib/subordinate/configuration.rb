@@ -22,12 +22,9 @@ module Subordinate
     end
 
     def reset!
-      self.username            = nil
-      self.api_token           = nil
-      self.domain              = nil
-      self.subdomain           = nil
-      self.port                = nil
-      self.ssl                 = true
+      VALID_OPTIONS_KEYS.each {|key| instance_variable_set("@#{key}".to_sym, nil) }
+      self.ssl = true
+      self
     end
   end
 end
