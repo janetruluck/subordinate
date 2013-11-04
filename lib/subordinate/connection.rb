@@ -1,4 +1,5 @@
 # Connection
+require "json"
 require "faraday_middleware"
 require "subordinate/error"
 
