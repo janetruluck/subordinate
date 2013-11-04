@@ -1,40 +1,40 @@
-require 'multi_json'
-
+# lib/subordinate/request.rb
 module Subordinate
   module Request
     def get(path, options = {})
-      response = request(:get, path, options)
-      response.body
+      request(:get, path, options)
     end
 
     def post(path, options = {})
-      response = request(:post, path, options)
-      response
+      request(:post, path, options)
+    end
+
+    def put(path, options = {})
+      request(:put, path, options)
+    end
+
+    def delete(path, options = {})
+      request(:delete, path, options)
+    end
+
+    def last_response
+      @last_response
     end
 
     private
     def request(method, path, options = {})
-      url = options.delete(:endpoint) || api_endpoint
+      url = options.delete(:api_endpoint) || api_endpoint
 
       connection_options = {
         :url => url
       }
 
       response = connection(connection_options).send(method) do |request|
-        case method
-        when :get
-          request.url(path, options)
-        when :post
-          with_query_params = options.delete(:with_query_params) || false
-          if with_query_params
-            request.url(path, options)
-          else
-            request.path = path
-            request.body = MultiJson.dump(options) unless options.empty?
-          end
-        end
+        request.url(path, options)
       end
-      response
+
+      @last_response = response
+      response.body
     end
   end
 end
